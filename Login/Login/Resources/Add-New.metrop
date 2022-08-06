@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IconProject Version="2.0" Name="Add-New" PUAEnable="true" BasicLatinEnable="false">
+  <Icon Name="Add-New" HasCharacterMap="false" Data="M12.126984,0L19.872009,0 19.872009,12.128 32,12.128 32,19.872999 19.872009,19.872999 19.872009,31.999 12.126984,31.999 12.126984,19.872999 0,19.872999 0,12.128 12.126984,12.128z" Location="Application" IsDirty="false" FontName="Add-New" IsDuplicate="false" ASCIIValue="" AlphaNumericValue="" FiValue="" GroupName="Application" DataFont="M381.5,1002.5L381.5,623.5 2.5,623.5 2.5,381.5 381.5,381.5 381.5,2.6 623.5,2.6 623.5,381.5 1002.5,381.5 1002.5,623.5 623.5,623.5 623.5,1002.5 381.5,1002.5 381.5,1002.5z" ExportCommand="MetroGraphicsPackage.IconCommand">
+    <Settings MainWidth="48" MainHeight="48" FlipX="-1" FlipY="1" CustomSize="48" IconShape="Square" BackgroundBrush="#FF050505" ContentWidth="26" ContentHeight="26" Angle="0" IsRect="false" SizeIndex="4" CustomWidth="48" CustomHeight="48" IsLinked="false" Padding="11" MaximumPadding="15" SldierValueChanged="MetroGraphicsPackage.IconCommand" IconBrush="#FFFFFFFF" FontFamily="Webdings" Character="&gt;" FlipCommand="MetroGraphicsPackage.IconCommand" IsBackgroundVisible="true" />
+  </Icon>
+  <PreferenceInfo ClassPrefix="sf-icon-" ClassPostfix="" CSSSelector="Attribute" CSSClassName="sf-icon" />
+</IconProject>
