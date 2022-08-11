@@ -55,9 +55,9 @@ namespace Login
                 }
                 connection.desconectar();
             }
-            catch
+            catch(Exception error)
             {
-                MessageBox.Show("Inicio de sesion invalido");
+                MessageBox.Show("Inicio de sesion invalido " + error.ToString());
             }
 
         }

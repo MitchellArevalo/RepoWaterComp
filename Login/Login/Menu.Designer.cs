@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.Imprimirlabel = new System.Windows.Forms.Label();
             this.UsuariosLabel = new System.Windows.Forms.Label();
-            this.Calcularlabel = new System.Windows.Forms.Label();
+            this.Consumolabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ClientesLabel = new System.Windows.Forms.Label();
             this.panelclientes = new System.Windows.Forms.Panel();
@@ -60,12 +60,12 @@
             // Imprimirlabel
             // 
             this.Imprimirlabel.AutoSize = true;
-            this.Imprimirlabel.BackColor = System.Drawing.Color.MediumPurple;
-            this.Imprimirlabel.Font = new System.Drawing.Font("Museo Sans Rounded 700", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Imprimirlabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(207)))), ((int)(((byte)(211)))));
+            this.Imprimirlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Imprimirlabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Imprimirlabel.Location = new System.Drawing.Point(81, 115);
             this.Imprimirlabel.Name = "Imprimirlabel";
-            this.Imprimirlabel.Size = new System.Drawing.Size(214, 58);
+            this.Imprimirlabel.Size = new System.Drawing.Size(204, 55);
             this.Imprimirlabel.TabIndex = 8;
             this.Imprimirlabel.Text = "Imprimir";
             this.Imprimirlabel.Visible = false;
@@ -73,39 +73,40 @@
             // UsuariosLabel
             // 
             this.UsuariosLabel.AutoSize = true;
-            this.UsuariosLabel.BackColor = System.Drawing.Color.SlateBlue;
-            this.UsuariosLabel.Font = new System.Drawing.Font("Museo Sans Rounded 700", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsuariosLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(156)))), ((int)(((byte)(183)))));
+            this.UsuariosLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsuariosLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.UsuariosLabel.Location = new System.Drawing.Point(82, 119);
             this.UsuariosLabel.Name = "UsuariosLabel";
-            this.UsuariosLabel.Size = new System.Drawing.Size(215, 58);
+            this.UsuariosLabel.Size = new System.Drawing.Size(222, 55);
             this.UsuariosLabel.TabIndex = 9;
             this.UsuariosLabel.Text = "Usuarios";
             this.UsuariosLabel.Click += new System.EventHandler(this.UsuariosLabel_Click);
             // 
-            // Calcularlabel
+            // Consumolabel
             // 
-            this.Calcularlabel.AutoSize = true;
-            this.Calcularlabel.BackColor = System.Drawing.Color.DarkCyan;
-            this.Calcularlabel.Font = new System.Drawing.Font("Museo Sans Rounded 700", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Calcularlabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Calcularlabel.Location = new System.Drawing.Point(89, 117);
-            this.Calcularlabel.Name = "Calcularlabel";
-            this.Calcularlabel.Size = new System.Drawing.Size(207, 58);
-            this.Calcularlabel.TabIndex = 10;
-            this.Calcularlabel.Text = "Calcular";
-            this.Calcularlabel.Visible = false;
-            this.Calcularlabel.DragLeave += new System.EventHandler(this.Calcularlabel_DragLeave);
+            this.Consumolabel.AutoSize = true;
+            this.Consumolabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(193)))), ((int)(((byte)(203)))));
+            this.Consumolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Consumolabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Consumolabel.Location = new System.Drawing.Point(77, 117);
+            this.Consumolabel.Name = "Consumolabel";
+            this.Consumolabel.Size = new System.Drawing.Size(238, 55);
+            this.Consumolabel.TabIndex = 10;
+            this.Consumolabel.Text = "Consumo";
+            this.Consumolabel.Visible = false;
+            this.Consumolabel.Click += new System.EventHandler(this.Calcularlabel_Click);
+            this.Consumolabel.DragLeave += new System.EventHandler(this.Calcularlabel_DragLeave);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(31)))), ((int)(((byte)(60)))));
-            this.label4.Font = new System.Drawing.Font("Museo Sans Rounded 700", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Location = new System.Drawing.Point(102, 275);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(173, 58);
+            this.label4.Size = new System.Drawing.Size(180, 55);
             this.label4.TabIndex = 11;
             this.label4.Text = "Acerca";
             this.label4.Visible = false;
@@ -114,12 +115,12 @@
             // ClientesLabel
             // 
             this.ClientesLabel.AutoSize = true;
-            this.ClientesLabel.BackColor = System.Drawing.Color.RoyalBlue;
-            this.ClientesLabel.Font = new System.Drawing.Font("Museo Sans Rounded 700", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientesLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(130)))), ((int)(((byte)(183)))));
+            this.ClientesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClientesLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientesLabel.Location = new System.Drawing.Point(92, 120);
             this.ClientesLabel.Name = "ClientesLabel";
-            this.ClientesLabel.Size = new System.Drawing.Size(203, 58);
+            this.ClientesLabel.Size = new System.Drawing.Size(205, 55);
             this.ClientesLabel.TabIndex = 7;
             this.ClientesLabel.Text = "Clientes";
             this.ClientesLabel.Visible = false;
@@ -128,11 +129,11 @@
             // 
             // panelclientes
             // 
-            this.panelclientes.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panelclientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(130)))), ((int)(((byte)(183)))));
             this.panelclientes.Controls.Add(this.ClientesLabel);
-            this.panelclientes.Location = new System.Drawing.Point(3, 1);
+            this.panelclientes.Location = new System.Drawing.Point(0, -1);
             this.panelclientes.Name = "panelclientes";
-            this.panelclientes.Size = new System.Drawing.Size(391, 303);
+            this.panelclientes.Size = new System.Drawing.Size(391, 307);
             this.panelclientes.TabIndex = 12;
             this.panelclientes.Visible = false;
             this.panelclientes.Paint += new System.Windows.Forms.PaintEventHandler(this.panelclientes_Paint);
@@ -140,11 +141,11 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.SlateBlue;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(156)))), ((int)(((byte)(183)))));
             this.panel1.Controls.Add(this.UsuariosLabel);
-            this.panel1.Location = new System.Drawing.Point(391, 3);
+            this.panel1.Location = new System.Drawing.Point(391, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(370, 303);
+            this.panel1.Size = new System.Drawing.Size(370, 306);
             this.panel1.TabIndex = 13;
             this.panel1.Visible = false;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -152,9 +153,9 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.DarkCyan;
-            this.panel2.Controls.Add(this.Calcularlabel);
-            this.panel2.Location = new System.Drawing.Point(0, 304);
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(193)))), ((int)(((byte)(203)))));
+            this.panel2.Controls.Add(this.Consumolabel);
+            this.panel2.Location = new System.Drawing.Point(0, 306);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(391, 287);
             this.panel2.TabIndex = 14;
@@ -163,11 +164,11 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.MediumPurple;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(207)))), ((int)(((byte)(211)))));
             this.panel3.Controls.Add(this.Imprimirlabel);
-            this.panel3.Location = new System.Drawing.Point(391, 305);
+            this.panel3.Location = new System.Drawing.Point(392, 306);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(370, 287);
+            this.panel3.Size = new System.Drawing.Size(369, 286);
             this.panel3.TabIndex = 15;
             this.panel3.Visible = false;
             this.panel3.MouseLeave += new System.EventHandler(this.panel3_MouseLeave);
@@ -178,20 +179,20 @@
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(762, 1);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(369, 587);
+            this.panel4.Size = new System.Drawing.Size(369, 592);
             this.panel4.TabIndex = 16;
             this.panel4.Visible = false;
             this.panel4.MouseLeave += new System.EventHandler(this.panel4_MouseLeave);
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkRed;
+            this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Museo Sans Rounded 700", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(-10, 581);
+            this.button1.Location = new System.Drawing.Point(-1, 584);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(1152, 82);
+            this.button1.Size = new System.Drawing.Size(1131, 74);
             this.button1.TabIndex = 17;
             this.button1.Text = "Cerrar Sesión";
             this.button1.UseVisualStyleBackColor = false;
@@ -215,7 +216,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.MediumPurple;
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(207)))), ((int)(((byte)(211)))));
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -229,8 +230,8 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.DarkCyan;
-            this.pictureBox5.BackgroundImage = global::Login.Properties.Resources.calculadora;
+            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(193)))), ((int)(((byte)(203)))));
+            this.pictureBox5.BackgroundImage = global::Login.Properties.Resources.Agua;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox5.Location = new System.Drawing.Point(-1, 304);
@@ -243,8 +244,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pictureBox1.BackgroundImage = global::Login.Properties.Resources.usuarios;
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(130)))), ((int)(((byte)(183)))));
+            this.pictureBox1.BackgroundImage = global::Login.Properties.Resources.humano;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Location = new System.Drawing.Point(-1, -1);
@@ -258,8 +259,8 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.SlateBlue;
-            this.pictureBox2.BackgroundImage = global::Login.Properties.Resources.clientes;
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(156)))), ((int)(((byte)(183)))));
+            this.pictureBox2.BackgroundImage = global::Login.Properties.Resources.programador;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Location = new System.Drawing.Point(391, -1);
@@ -275,13 +276,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1129, 657);
-            this.Controls.Add(this.panel4);
+            this.ClientSize = new System.Drawing.Size(1130, 657);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.panelclientes);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panelclientes);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox5);
@@ -323,7 +324,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label Imprimirlabel;
         private System.Windows.Forms.Label UsuariosLabel;
-        private System.Windows.Forms.Label Calcularlabel;
+        private System.Windows.Forms.Label Consumolabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label ClientesLabel;
         private System.Windows.Forms.Panel panelclientes;

@@ -41,7 +41,7 @@ namespace Login
                 string correo_recuperado;
 
                 correo_recuperado = CorreoRecuperar.Text;
-                DatosBD.correoRecuperarContra(correo_recuperado);               
+                DatosBD.EnviarCorreo(correo_recuperado, "null", "RecuperarContra");               
 
             }
             catch (Exception a)

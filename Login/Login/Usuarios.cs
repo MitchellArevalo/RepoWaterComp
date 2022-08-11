@@ -12,6 +12,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Font = iTextSharp.text.Font;
+using Image = iTextSharp.text.Image;
+using System.Runtime.CompilerServices;
+using System.Collections;
+using System.util;
+using System.Reflection;
+using iTextSharp.text.factories;
+using iTextSharp.text.pdf.codec;
+
 
 namespace Login
 {
@@ -169,81 +178,170 @@ namespace Login
 
         }
 
+
         private void button3_Click(object sender, EventArgs e)
-        {
-            
+         {
+           
 
-            if (dglista2.Rows.Count > 0)
-             {
-                 SaveFileDialog sfd = new SaveFileDialog();
-                 sfd.Filter = "PDF (*.pdf)|*.pdf";
-                 sfd.FileName = "Usuarios.pdf";
-                 bool fileError = false;
-                 if (sfd.ShowDialog() == DialogResult.OK)
-                 {
-                     if (File.Exists(sfd.FileName))
-                     {
-                         try
-                         {
-                             File.Delete(sfd.FileName);
-                         }
-                         catch (IOException ex)
-                         {
-                             fileError = true;
-                             MessageBox.Show("Ocurrió un error al intentar guardar" + ex.Message);
-                         }
-                     }
-                     if (!fileError)
-                     {
-                         try
-                         {
-                             PdfPTable pdfTable = new PdfPTable(dglista2.Columns.Count);
-                             pdfTable.DefaultCell.Padding = 5;
-                             pdfTable.WidthPercentage = 100;
-                             pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
+             if (dglista2.Rows.Count > 0)
+              {
+                  SaveFileDialog sfd = new SaveFileDialog();
+                  sfd.Filter = "PDF (*.pdf)|*.pdf";
+                  sfd.FileName = "Usuarios-" + DateTime.Now.ToString("MM-dd-yyyy" );
+                    string ReportUser;
+               
+                  bool fileError = false;
+                  if (sfd.ShowDialog() == DialogResult.OK)
+                  {
+                      if (File.Exists(sfd.FileName))
+                      {
+                          try
+                        {
+                            ReportUser = sfd.FileName;
+                              File.Delete(sfd.FileName);
+                          }
+                          catch (IOException ex)
+                          {
+                              fileError = true;
+                              MessageBox.Show("Ocurrió un error al intentar guardar" + ex.Message);
+                          }
+                      }
+                      if (!fileError)
+                      {
+                          try
+                          {
+                            ReportUser = sfd.FileName;
+                            PdfPTable pdfTable = new PdfPTable(8);
+                              pdfTable.DefaultCell.Padding = 5;
+                              pdfTable.WidthPercentage = 100;
+                              pdfTable.HorizontalAlignment = Element.ALIGN_MIDDLE;
+                            iTextSharp.text.Font colorCeldas = FontFactory.GetFont("Calibri", 15, iTextSharp.text.Font.BOLD, new iTextSharp.text.BaseColor(101, 115, 162));
+                            iTextSharp.text.Font fuenteFecha = FontFactory.GetFont("Calibri", 10, iTextSharp.text.Font.BOLD, new iTextSharp.text.BaseColor(101, 115, 162));
 
-                             foreach (DataGridViewColumn column in dglista2.Columns)
-                             {
-                                 if (column.Visible)
-                                 {
-                                     PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
-                                     pdfTable.AddCell(cell);
-                                 }
 
-                             }
+                            foreach (DataGridViewColumn column in dglista2.Columns)
+                                {
+                                    if (column.Visible == true)
+                                    {       
+                                        PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, colorCeldas));
+                                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                                        cell.PaddingBottom = 8;
+                                        cell.PaddingTop = 8;
+                                        pdfTable.AddCell(cell);
+                                    }
+                                }
+                          
+                            for (int row = 0; row < dglista2.Rows.Count; ++row)
+                            {
+                                for (int col = 1; col < 10; ++col)
+                                {
+                                    if (col != 6)
+                                    {
+                                        if (col == 9)
+                                        {
+                                            object value = dglista2.Rows[row].Cells[9].Value;
 
-                             foreach (DataGridViewRow row in dglista2.Rows)
-                             {
-                                 foreach (DataGridViewCell cell in row.Cells)
-                                 {
-                                     pdfTable.AddCell(cell.Value.ToString());
-                                 }
-                             }
+                                            pdfTable.AddCell(value.ToString());
+                                        }
+                                        else
+                                        {
+                                            if (col == 1)
+                                            {
+                                                var logo = iTextSharp.text.Image.GetInstance(Application.StartupPath + @"\UsersImage\" + dglista2.Rows[row].Cells[8].Value);
+                                                logo.ScaleAbsoluteWidth(90);
+                                                logo.ScaleAbsoluteHeight(90);
+                                                logo.Alignment = iTextSharp.text.Image.ALIGN_CENTER;
+                                                var imageCelda = new PdfPCell(logo);
+                                                imageCelda.Padding = 3;
+                                                imageCelda.BorderWidth = 1;
+                                                imageCelda.BorderColor = BaseColor.BLACK;
+                                                imageCelda.HorizontalAlignment = iTextSharp.text.Image.ALIGN_CENTER;
+                                                pdfTable.AddCell(imageCelda);
+                                                
+                                            }
+                                            else
+                                            {
+                                                object value = dglista2.Rows[row].Cells[col].Value;
+                                                
+                                                pdfTable.AddCell(value.ToString());
+                                            }
+                                        
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                            }
 
-                             using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
-                             {
-                                 Document pdfDoc = new Document(PageSize.A4, 10f, 30f, 30f, 10f);
-                                 PdfWriter.GetInstance(pdfDoc, stream);
-                                 pdfDoc.Open();
+                            Paragraph p = new Paragraph(Width);
+                            BaseColor azulTitulo = new BaseColor(101, 115, 162);
+                            var colorTitulo = FontFactory.GetFont("Calibri", 30, azulTitulo);
+                            
+                            p.Font.Size = 30;                            
+                            p.Alignment = Element.ALIGN_CENTER;
+                            p.Leading = colorTitulo.Size * 1f;
+                            p.SpacingAfter = colorTitulo.Size * 1f;
+                            p.Add(new Phrase("Reporte Usuarios", colorTitulo));
 
-                                 pdfDoc.Add(pdfTable);
-                                 pdfDoc.Close();
-                                 stream.Close();
-                             }
+                            Paragraph date = new Paragraph(Width);
 
-                             MessageBox.Show("Exportado correctamente");
-                         }
-                         catch (Exception ex)
-                         {
-                             MessageBox.Show("Error :" + ex.Message);
-                         }
-                     }
-                 }
-             }
-             else
-             {
-                 MessageBox.Show("No hay nada por guardar");
-             }
-        }
+                            date.Font.Size = 30;
+                            date.Alignment = Element.ALIGN_LEFT;
+                            date.Leading = colorTitulo.Size * 0f;
+                            date.SpacingAfter = colorTitulo.Size * 0f;
+                            date.Add(new Phrase(DateTime.Now.ToString(), fuenteFecha));
+
+                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                              {
+                                Document pdfDoc = new Document(PageSize.A3, 15f, 15f, 30f, 30f);
+
+                               
+
+                                PdfWriter.GetInstance(pdfDoc, stream);
+                                
+                                pdfDoc.Open();
+                                pdfDoc.NewPage();
+
+                                Image watermark = Image.GetInstance(Application.StartupPath + @"\UsersImage\" + "LogoSinFondo.png");
+
+                                watermark.ScaleToFit(400, 400);
+                                
+                                watermark.SetAbsolutePosition(215,500);
+
+                                pdfDoc.Add(watermark);
+                                pdfDoc.Add(date);
+                                pdfDoc.Add(new Paragraph(p));
+                                pdfDoc.Add(pdfTable);
+                                pdfDoc.Close();
+                                stream.Close();
+                              }
+                            //File.Copy(ReportUser, Application.StartupPath + @"\ReportsUsuarios\" + Path.GetFileName(sfd.FileName));
+                            DialogResult resul = MessageBox.Show("¿Desea enviar una copia del reporte al correo electrónico?","Enviar Reporte", MessageBoxButtons.YesNo);
+                            if (resul == DialogResult.Yes)
+                            {
+                                Form viajar = new Enviar_Reporte();
+                                viajar.Show();
+                                Enviar_Reporte.archivo = ReportUser;
+                                Enviar_Reporte.type = "Usuario";
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Exportado correctamente");
+                                return;
+                            }
+                          }
+                          catch (Exception ex)
+                          {
+                              MessageBox.Show("Error :" + ex.Message);
+                          }
+                      }
+                  }
+              }
+              else
+              {
+                  MessageBox.Show("No hay nada por guardar");
+              }
+         }
     }
 }

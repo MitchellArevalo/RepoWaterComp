@@ -43,13 +43,14 @@
             // Username_Text_Box
             // 
             this.Username_Text_Box.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.Username_Text_Box.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
             this.Username_Text_Box.BackColor = System.Drawing.Color.Silver;
             this.Username_Text_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Username_Text_Box.Font = new System.Drawing.Font("Museo Sans Rounded 700", 13.75F, System.Drawing.FontStyle.Bold);
+            this.Username_Text_Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.75F, System.Drawing.FontStyle.Bold);
             this.Username_Text_Box.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(57)))));
             this.Username_Text_Box.Location = new System.Drawing.Point(1047, 156);
             this.Username_Text_Box.Name = "Username_Text_Box";
-            this.Username_Text_Box.Size = new System.Drawing.Size(432, 22);
+            this.Username_Text_Box.Size = new System.Drawing.Size(432, 21);
             this.Username_Text_Box.TabIndex = 0;
             this.Username_Text_Box.TextChanged += new System.EventHandler(this.Username_Text_Box_TextChanged);
             this.Username_Text_Box.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Password_TextBox_KeyPress);
@@ -57,7 +58,7 @@
             // Label_Username
             // 
             this.Label_Username.AutoSize = true;
-            this.Label_Username.Font = new System.Drawing.Font("Museo Sans Rounded 700", 14.25F);
+            this.Label_Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.Label_Username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(234)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.Label_Username.Location = new System.Drawing.Point(939, 153);
             this.Label_Username.Name = "Label_Username";
@@ -69,7 +70,7 @@
             // Label_Password
             // 
             this.Label_Password.AutoSize = true;
-            this.Label_Password.Font = new System.Drawing.Font("Museo Sans Rounded 700", 14.25F);
+            this.Label_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.Label_Password.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(234)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.Label_Password.Location = new System.Drawing.Point(940, 215);
             this.Label_Password.Name = "Label_Password";
@@ -83,11 +84,11 @@
             this.Password_TextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.Password_TextBox.BackColor = System.Drawing.Color.Silver;
             this.Password_TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Password_TextBox.Font = new System.Drawing.Font("Museo Sans Rounded 700", 13.75F, System.Drawing.FontStyle.Bold);
+            this.Password_TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.75F, System.Drawing.FontStyle.Bold);
             this.Password_TextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(57)))));
             this.Password_TextBox.Location = new System.Drawing.Point(1049, 216);
             this.Password_TextBox.Name = "Password_TextBox";
-            this.Password_TextBox.Size = new System.Drawing.Size(430, 22);
+            this.Password_TextBox.Size = new System.Drawing.Size(430, 21);
             this.Password_TextBox.TabIndex = 3;
             this.Password_TextBox.UseSystemPasswordChar = true;
             this.Password_TextBox.TextChanged += new System.EventHandler(this.Password_TextBox_TextChanged);
@@ -98,7 +99,7 @@
             this.BtnIngresar.BackColor = System.Drawing.Color.Transparent;
             this.BtnIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnIngresar.Font = new System.Drawing.Font("Museo Sans Rounded 700", 14.25F);
+            this.BtnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.BtnIngresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.BtnIngresar.Location = new System.Drawing.Point(1375, 316);
             this.BtnIngresar.Name = "BtnIngresar";
@@ -114,7 +115,7 @@
             this.BtnSalir.BackColor = System.Drawing.Color.Transparent;
             this.BtnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSalir.Font = new System.Drawing.Font("Museo Sans Rounded 700", 14.25F);
+            this.BtnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.BtnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.BtnSalir.Location = new System.Drawing.Point(1050, 316);
             this.BtnSalir.Name = "BtnSalir";
@@ -127,11 +128,11 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Museo Sans Rounded 700", 9F);
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
             this.linkLabel1.Location = new System.Drawing.Point(1049, 247);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(146, 15);
+            this.linkLabel1.Size = new System.Drawing.Size(148, 15);
             this.linkLabel1.TabIndex = 6;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "¿Olvidaste tu contraseña?";

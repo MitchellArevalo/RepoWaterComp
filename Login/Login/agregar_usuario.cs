@@ -275,6 +275,11 @@ namespace Login
         {
             
         }
+
+        private void ActiveCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 

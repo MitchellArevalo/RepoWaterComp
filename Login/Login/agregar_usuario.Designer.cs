@@ -48,8 +48,8 @@
             this.Expandir_Checkbox = new System.Windows.Forms.CheckBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.Img_Button = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ActiveCheckbox = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -287,6 +287,21 @@
             this.Img_Button.UseVisualStyleBackColor = true;
             this.Img_Button.Click += new System.EventHandler(this.Img_Button_Click);
             // 
+            // ActiveCheckbox
+            // 
+            this.ActiveCheckbox.AutoSize = true;
+            this.ActiveCheckbox.Checked = true;
+            this.ActiveCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ActiveCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActiveCheckbox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ActiveCheckbox.Location = new System.Drawing.Point(396, 429);
+            this.ActiveCheckbox.Name = "ActiveCheckbox";
+            this.ActiveCheckbox.Size = new System.Drawing.Size(86, 28);
+            this.ActiveCheckbox.TabIndex = 23;
+            this.ActiveCheckbox.Text = "Activo";
+            this.ActiveCheckbox.UseVisualStyleBackColor = true;
+            this.ActiveCheckbox.CheckedChanged += new System.EventHandler(this.ActiveCheckbox_CheckedChanged);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -301,20 +316,6 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            // 
-            // ActiveCheckbox
-            // 
-            this.ActiveCheckbox.AutoSize = true;
-            this.ActiveCheckbox.Checked = true;
-            this.ActiveCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ActiveCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActiveCheckbox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ActiveCheckbox.Location = new System.Drawing.Point(396, 429);
-            this.ActiveCheckbox.Name = "ActiveCheckbox";
-            this.ActiveCheckbox.Size = new System.Drawing.Size(86, 28);
-            this.ActiveCheckbox.TabIndex = 23;
-            this.ActiveCheckbox.Text = "Activo";
-            this.ActiveCheckbox.UseVisualStyleBackColor = true;
             // 
             // agregar_usuario
             // 
