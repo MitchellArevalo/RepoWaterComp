@@ -57,7 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.label1.Location = new System.Drawing.Point(391, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 25);
@@ -97,7 +97,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.label2.Location = new System.Drawing.Point(391, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(180, 25);
@@ -122,7 +122,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.label3.Location = new System.Drawing.Point(391, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 25);
@@ -148,7 +148,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.label4.Location = new System.Drawing.Point(390, 222);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 25);
@@ -173,7 +173,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.label5.Location = new System.Drawing.Point(390, 294);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(189, 25);
@@ -185,7 +185,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.label7.Location = new System.Drawing.Point(99, 21);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(186, 31);
@@ -195,7 +195,9 @@
             // 
             // btn_guardar_usuario
             // 
+            this.btn_guardar_usuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_guardar_usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.btn_guardar_usuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.btn_guardar_usuario.Location = new System.Drawing.Point(734, 470);
             this.btn_guardar_usuario.Name = "btn_guardar_usuario";
             this.btn_guardar_usuario.Size = new System.Drawing.Size(103, 39);
@@ -206,7 +208,9 @@
             // 
             // btn_salir
             // 
+            this.btn_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.btn_salir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.btn_salir.Location = new System.Drawing.Point(395, 470);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(103, 39);
@@ -219,7 +223,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.label6.Location = new System.Drawing.Point(391, 358);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 25);
@@ -231,7 +235,7 @@
             // 
             this.CheckContra.AutoSize = true;
             this.CheckContra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.CheckContra.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CheckContra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.CheckContra.Location = new System.Drawing.Point(671, 282);
             this.CheckContra.Name = "CheckContra";
             this.CheckContra.Size = new System.Drawing.Size(150, 19);
@@ -264,7 +268,7 @@
             // 
             this.Expandir_Checkbox.AutoSize = true;
             this.Expandir_Checkbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.Expandir_Checkbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Expandir_Checkbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.Expandir_Checkbox.Location = new System.Drawing.Point(737, 390);
             this.Expandir_Checkbox.Name = "Expandir_Checkbox";
             this.Expandir_Checkbox.Size = new System.Drawing.Size(83, 19);
@@ -279,6 +283,8 @@
             // 
             // Img_Button
             // 
+            this.Img_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Img_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.Img_Button.Location = new System.Drawing.Point(99, 418);
             this.Img_Button.Name = "Img_Button";
             this.Img_Button.Size = new System.Drawing.Size(181, 43);
@@ -293,7 +299,7 @@
             this.ActiveCheckbox.Checked = true;
             this.ActiveCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ActiveCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActiveCheckbox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ActiveCheckbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.ActiveCheckbox.Location = new System.Drawing.Point(396, 429);
             this.ActiveCheckbox.Name = "ActiveCheckbox";
             this.ActiveCheckbox.Size = new System.Drawing.Size(86, 28);

@@ -30,6 +30,7 @@
         {
             this.Btn_Lectura = new System.Windows.Forms.Button();
             this.Btn_consumo = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Btn_Lectura
@@ -61,12 +62,28 @@
             this.Btn_consumo.Text = "Visualizar registros";
             this.Btn_consumo.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.button1.Location = new System.Drawing.Point(12, 187);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(294, 46);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Salir";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Consumo_o_Registros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(318, 177);
+            this.ClientSize = new System.Drawing.Size(315, 254);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Btn_consumo);
             this.Controls.Add(this.Btn_Lectura);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -81,5 +98,6 @@
 
         private System.Windows.Forms.Button Btn_Lectura;
         private System.Windows.Forms.Button Btn_consumo;
+        private System.Windows.Forms.Button button1;
     }
 }

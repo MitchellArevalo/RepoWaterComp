@@ -109,9 +109,6 @@ namespace Login
 
                 return;
             }
-
-
-
         }
 
 
@@ -562,11 +559,11 @@ namespace Login
                 return null;
             }
         }
-        public void insertClientes(string nombre, string Documento_identidad, string Estrato, string CodigoPredio, string direccion, string correo, string activo)
+        public void insertClientes(string nombre, string Documento_identidad, string Estrato, string CodigoPredio, string direccion, string correo, string activo, string city, string dpto)
         {
 
             ConexionBD con = new ConexionBD();
-            SqlCommand comando = new SqlCommand(string.Format("INSERT INTO ClientesTable(Nombre, Documento, Estrato, CodigoPredio, Direccion, Correo_Electronico, Active)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", nombre, Documento_identidad, Estrato, CodigoPredio, direccion, correo, activo), con.conectar());
+            SqlCommand comando = new SqlCommand(string.Format("INSERT INTO ClientesTable(Nombre, Documento, Estrato, CodigoPredio, Direccion, Correo_Electronico, Active, Ciudad, Departamento)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')", nombre, Documento_identidad, Estrato, CodigoPredio, direccion, correo, activo, city, dpto), con.conectar());
 
             comando.ExecuteNonQuery();
 

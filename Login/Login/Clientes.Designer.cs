@@ -273,7 +273,7 @@
             this.Correo_Electronico.HeaderText = "Email";
             this.Correo_Electronico.Name = "Correo_Electronico";
             this.Correo_Electronico.ReadOnly = true;
-            this.Correo_Electronico.Width = 300;
+            this.Correo_Electronico.Width = 275;
             // 
             // Ciudad
             // 
@@ -284,10 +284,12 @@
             // 
             // Departamento
             // 
+            this.Departamento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Departamento.DataPropertyName = "Departamento";
             this.Departamento.HeaderText = "Departamento";
             this.Departamento.Name = "Departamento";
             this.Departamento.ReadOnly = true;
+            this.Departamento.Width = 150;
             // 
             // Active
             // 

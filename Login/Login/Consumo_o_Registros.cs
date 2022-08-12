@@ -24,5 +24,13 @@ namespace Login
 
             this.Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form Viajar = new Menu();
+            Viajar.Show();
+
+            this.Hide();
+        }
     }
 }

@@ -45,12 +45,18 @@
             this.txt_direccion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.ciudadBox = new System.Windows.Forms.ComboBox();
+            this.Ciudad = new System.Windows.Forms.Label();
+            this.DepartamentoBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btn_salir
             // 
+            this.btn_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.btn_salir.Location = new System.Drawing.Point(177, 318);
+            this.btn_salir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.btn_salir.Location = new System.Drawing.Point(61, 331);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(103, 39);
             this.btn_salir.TabIndex = 31;
@@ -60,8 +66,10 @@
             // 
             // btn_guardar
             // 
+            this.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.btn_guardar.Location = new System.Drawing.Point(741, 319);
+            this.btn_guardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.btn_guardar.Location = new System.Drawing.Point(307, 334);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(103, 39);
             this.btn_guardar.TabIndex = 30;
@@ -86,7 +94,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.label5.Location = new System.Drawing.Point(25, 227);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(189, 25);
@@ -111,7 +119,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.label2.Location = new System.Drawing.Point(25, 158);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(180, 25);
@@ -136,7 +144,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.label1.Location = new System.Drawing.Point(25, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 25);
@@ -150,8 +158,8 @@
             this.ActiveCheckbox.Checked = true;
             this.ActiveCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ActiveCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActiveCheckbox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ActiveCheckbox.Location = new System.Drawing.Point(917, 249);
+            this.ActiveCheckbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.ActiveCheckbox.Location = new System.Drawing.Point(826, 255);
             this.ActiveCheckbox.Name = "ActiveCheckbox";
             this.ActiveCheckbox.Size = new System.Drawing.Size(86, 28);
             this.ActiveCheckbox.TabIndex = 32;
@@ -176,7 +184,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.label3.Location = new System.Drawing.Point(577, 89);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(128, 25);
@@ -193,12 +201,12 @@
             this.estratobox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.estratobox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.estratobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.estratobox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.estratobox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.estratobox.FormattingEnabled = true;
             this.estratobox.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.estratobox.Location = new System.Drawing.Point(584, 253);
+            this.estratobox.Location = new System.Drawing.Point(580, 253);
             this.estratobox.Name = "estratobox";
             this.estratobox.Size = new System.Drawing.Size(133, 28);
             this.estratobox.TabIndex = 35;
@@ -208,8 +216,8 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(581, 226);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.label4.Location = new System.Drawing.Point(577, 226);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 25);
             this.label4.TabIndex = 36;
@@ -233,7 +241,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.label6.Location = new System.Drawing.Point(578, 159);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 25);
@@ -245,13 +253,106 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.label7.Location = new System.Drawing.Point(403, 19);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(240, 39);
             this.label7.TabIndex = 39;
             this.label7.Text = "Nuevo cliente";
             this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.label8.Location = new System.Drawing.Point(576, 301);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(147, 25);
+            this.label8.TabIndex = 41;
+            this.label8.Text = "Departamento";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // ciudadBox
+            // 
+            this.ciudadBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ciudadBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.ciudadBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ciudadBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ciudadBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.ciudadBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ciudadBox.FormattingEnabled = true;
+            this.ciudadBox.Location = new System.Drawing.Point(819, 331);
+            this.ciudadBox.Name = "ciudadBox";
+            this.ciudadBox.Size = new System.Drawing.Size(188, 28);
+            this.ciudadBox.TabIndex = 40;
+            this.ciudadBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // Ciudad
+            // 
+            this.Ciudad.AutoSize = true;
+            this.Ciudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.Ciudad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.Ciudad.Location = new System.Drawing.Point(817, 304);
+            this.Ciudad.Name = "Ciudad";
+            this.Ciudad.Size = new System.Drawing.Size(81, 25);
+            this.Ciudad.TabIndex = 43;
+            this.Ciudad.Text = "Ciudad";
+            // 
+            // DepartamentoBox
+            // 
+            this.DepartamentoBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DepartamentoBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.DepartamentoBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DepartamentoBox.DropDownWidth = 5;
+            this.DepartamentoBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DepartamentoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.DepartamentoBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.DepartamentoBox.FormattingEnabled = true;
+            this.DepartamentoBox.ItemHeight = 20;
+            this.DepartamentoBox.Items.AddRange(new object[] {
+            "Seleccione un Dpto",
+            "Amazonas",
+            "Antioquia",
+            "Arauca",
+            "Atlántico",
+            "Bolívar",
+            "Boyacá",
+            "Caldas",
+            "Caquetá",
+            "Casanare",
+            "Cauca",
+            "Cesar",
+            "Chocó",
+            "Córdoba",
+            "Cundinamarca",
+            "Guainía",
+            "Guaviare",
+            "Huila",
+            "La Guajira",
+            "Magdalena",
+            "Meta",
+            "Nariño",
+            "Norte de Santander",
+            "Putumayo\t",
+            "Quindío",
+            "Risaralda",
+            "San Andrés y Providencia",
+            "Santander",
+            "Sucre",
+            "Tolima",
+            "Valle del Cauca",
+            "Vaupés",
+            "Vichada"});
+            this.DepartamentoBox.Location = new System.Drawing.Point(581, 331);
+            this.DepartamentoBox.Name = "DepartamentoBox";
+            this.DepartamentoBox.Size = new System.Drawing.Size(202, 28);
+            this.DepartamentoBox.TabIndex = 10;
+            this.DepartamentoBox.SelectedIndexChanged += new System.EventHandler(this.DepartamentoBox_SelectedIndexChanged);
             // 
             // agregar_Cliente
             // 
@@ -260,7 +361,11 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::Login.Properties.Resources.LogoSinFondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1037, 386);
+            this.ClientSize = new System.Drawing.Size(1037, 413);
+            this.Controls.Add(this.Ciudad);
+            this.Controls.Add(this.DepartamentoBox);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.ciudadBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txt_direccion);
             this.Controls.Add(this.label6);
@@ -307,5 +412,9 @@
         private System.Windows.Forms.TextBox txt_direccion;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox ciudadBox;
+        private System.Windows.Forms.Label Ciudad;
+        private System.Windows.Forms.ComboBox DepartamentoBox;
     }
 }
