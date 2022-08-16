@@ -32,5 +32,13 @@ namespace Login
 
             this.Hide();
         }
+
+        private void Btn_consumo_Click(object sender, EventArgs e)
+        {
+            Form Viajar = new Consumos();
+            Viajar.Show();
+
+            this.Hide();
+        }
     }
 }

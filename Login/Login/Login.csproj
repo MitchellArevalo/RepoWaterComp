@@ -98,11 +98,23 @@
     <Compile Include="Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consumos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consumos.Designer.cs">
+      <DependentUpon>Consumos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consumo_o_Registros.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consumo_o_Registros.Designer.cs">
       <DependentUpon>Consumo_o_Registros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editar Consumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editar Consumo.Designer.cs">
+      <DependentUpon>Editar Consumo.cs</DependentUpon>
     </Compile>
     <Compile Include="Editar usuario.cs">
       <SubType>Form</SubType>
@@ -172,8 +184,14 @@
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consumos.resx">
+      <DependentUpon>Consumos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consumo_o_Registros.resx">
       <DependentUpon>Consumo_o_Registros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editar Consumo.resx">
+      <DependentUpon>Editar Consumo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editar usuario.resx">
       <DependentUpon>Editar usuario.cs</DependentUpon>

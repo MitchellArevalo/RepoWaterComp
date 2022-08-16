@@ -61,6 +61,7 @@
             this.Btn_consumo.TabIndex = 1;
             this.Btn_consumo.Text = "Visualizar registros";
             this.Btn_consumo.UseVisualStyleBackColor = false;
+            this.Btn_consumo.Click += new System.EventHandler(this.Btn_consumo_Click);
             // 
             // button1
             // 

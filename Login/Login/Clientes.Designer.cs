@@ -32,15 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clientes));
-            this.dglistaUsuarios = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Export_Button = new System.Windows.Forms.Button();
-            this.RefreshButton = new System.Windows.Forms.Button();
-            this.BackButton = new System.Windows.Forms.Button();
-            this.editar_Button = new System.Windows.Forms.Button();
-            this.Deletebutton = new System.Windows.Forms.Button();
-            this.Add_Button = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.dglistaClientes = new System.Windows.Forms.DataGridView();
             this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,15 +43,23 @@
             this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dglistaUsuarios)).BeginInit();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Export_Button = new System.Windows.Forms.Button();
+            this.RefreshButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
+            this.editar_Button = new System.Windows.Forms.Button();
+            this.Deletebutton = new System.Windows.Forms.Button();
+            this.Add_Button = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dglistaClientes)).BeginInit();
             this.SuspendLayout();
             // 
-            // dglistaUsuarios
+            // dglistaClientes
             // 
-            this.dglistaUsuarios.AllowUserToAddRows = false;
-            this.dglistaUsuarios.AllowUserToDeleteRows = false;
-            this.dglistaUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dglistaUsuarios.BackgroundColor = System.Drawing.Color.White;
+            this.dglistaClientes.AllowUserToAddRows = false;
+            this.dglistaClientes.AllowUserToDeleteRows = false;
+            this.dglistaClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dglistaClientes.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
@@ -68,9 +68,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dglistaUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dglistaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dglistaUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dglistaClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dglistaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dglistaClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdCliente,
             this.Nombre,
             this.Documento,
@@ -89,18 +89,108 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dglistaUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dglistaUsuarios.Location = new System.Drawing.Point(2, 40);
-            this.dglistaUsuarios.Name = "dglistaUsuarios";
-            this.dglistaUsuarios.ReadOnly = true;
+            this.dglistaClientes.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dglistaClientes.Location = new System.Drawing.Point(2, 40);
+            this.dglistaClientes.Name = "dglistaClientes";
+            this.dglistaClientes.ReadOnly = true;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(31)))), ((int)(((byte)(60)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dglistaUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dglistaUsuarios.RowTemplate.Height = 100;
-            this.dglistaUsuarios.Size = new System.Drawing.Size(1360, 682);
-            this.dglistaUsuarios.TabIndex = 20;
+            this.dglistaClientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dglistaClientes.RowTemplate.Height = 100;
+            this.dglistaClientes.Size = new System.Drawing.Size(1360, 682);
+            this.dglistaClientes.TabIndex = 20;
+            this.dglistaClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dglistaUsuarios_CellContentClick);
+            // 
+            // IdCliente
+            // 
+            this.IdCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.IdCliente.DataPropertyName = "IdCliente";
+            this.IdCliente.FillWeight = 30.23038F;
+            this.IdCliente.HeaderText = "Id Usuario";
+            this.IdCliente.Name = "IdCliente";
+            this.IdCliente.ReadOnly = true;
+            this.IdCliente.Visible = false;
+            this.IdCliente.Width = 60;
+            // 
+            // Nombre
+            // 
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.FillWeight = 42.07061F;
+            this.Nombre.HeaderText = "Nombre completo";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 200;
+            // 
+            // Documento
+            // 
+            this.Documento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Documento.DataPropertyName = "Documento";
+            this.Documento.FillWeight = 42.07061F;
+            this.Documento.HeaderText = "Documento";
+            this.Documento.Name = "Documento";
+            this.Documento.ReadOnly = true;
+            this.Documento.Width = 180;
+            // 
+            // Estrato
+            // 
+            this.Estrato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Estrato.DataPropertyName = "Estrato";
+            this.Estrato.HeaderText = "Estrato";
+            this.Estrato.Name = "Estrato";
+            this.Estrato.ReadOnly = true;
+            this.Estrato.Width = 75;
+            // 
+            // CodigoPredio
+            // 
+            this.CodigoPredio.DataPropertyName = "CodigoPredio";
+            this.CodigoPredio.HeaderText = "COD Predio";
+            this.CodigoPredio.Name = "CodigoPredio";
+            this.CodigoPredio.ReadOnly = true;
+            // 
+            // Direccion
+            // 
+            this.Direccion.DataPropertyName = "Direccion";
+            this.Direccion.HeaderText = "Dirección";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            // 
+            // Correo_Electronico
+            // 
+            this.Correo_Electronico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Correo_Electronico.DataPropertyName = "Correo_Electronico";
+            this.Correo_Electronico.FillWeight = 42.07061F;
+            this.Correo_Electronico.HeaderText = "Email";
+            this.Correo_Electronico.Name = "Correo_Electronico";
+            this.Correo_Electronico.ReadOnly = true;
+            this.Correo_Electronico.Width = 275;
+            // 
+            // Ciudad
+            // 
+            this.Ciudad.DataPropertyName = "Ciudad";
+            this.Ciudad.HeaderText = "Ciudad";
+            this.Ciudad.Name = "Ciudad";
+            this.Ciudad.ReadOnly = true;
+            // 
+            // Departamento
+            // 
+            this.Departamento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Departamento.DataPropertyName = "Departamento";
+            this.Departamento.HeaderText = "Departamento";
+            this.Departamento.Name = "Departamento";
+            this.Departamento.ReadOnly = true;
+            this.Departamento.Width = 150;
+            // 
+            // Active
+            // 
+            this.Active.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Activo";
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
+            this.Active.Width = 75;
             // 
             // textBox1
             // 
@@ -112,6 +202,14 @@
             this.textBox1.Size = new System.Drawing.Size(664, 35);
             this.textBox1.TabIndex = 17;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(0, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1368, 41);
+            this.panel1.TabIndex = 22;
             // 
             // Export_Button
             // 
@@ -203,103 +301,6 @@
             this.Add_Button.UseVisualStyleBackColor = false;
             this.Add_Button.Click += new System.EventHandler(this.Add_Button_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(0, -1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1368, 41);
-            this.panel1.TabIndex = 22;
-            // 
-            // IdCliente
-            // 
-            this.IdCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.IdCliente.DataPropertyName = "IdCliente";
-            this.IdCliente.FillWeight = 30.23038F;
-            this.IdCliente.HeaderText = "Id Usuario";
-            this.IdCliente.Name = "IdCliente";
-            this.IdCliente.ReadOnly = true;
-            this.IdCliente.Visible = false;
-            this.IdCliente.Width = 60;
-            // 
-            // Nombre
-            // 
-            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.FillWeight = 42.07061F;
-            this.Nombre.HeaderText = "Nombre completo";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 200;
-            // 
-            // Documento
-            // 
-            this.Documento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Documento.DataPropertyName = "Documento";
-            this.Documento.FillWeight = 42.07061F;
-            this.Documento.HeaderText = "Documento";
-            this.Documento.Name = "Documento";
-            this.Documento.ReadOnly = true;
-            this.Documento.Width = 180;
-            // 
-            // Estrato
-            // 
-            this.Estrato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Estrato.DataPropertyName = "Estrato";
-            this.Estrato.HeaderText = "Estrato";
-            this.Estrato.Name = "Estrato";
-            this.Estrato.ReadOnly = true;
-            this.Estrato.Width = 75;
-            // 
-            // CodigoPredio
-            // 
-            this.CodigoPredio.DataPropertyName = "CodigoPredio";
-            this.CodigoPredio.HeaderText = "COD Predio";
-            this.CodigoPredio.Name = "CodigoPredio";
-            this.CodigoPredio.ReadOnly = true;
-            // 
-            // Direccion
-            // 
-            this.Direccion.DataPropertyName = "Direccion";
-            this.Direccion.HeaderText = "Dirección";
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            // 
-            // Correo_Electronico
-            // 
-            this.Correo_Electronico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Correo_Electronico.DataPropertyName = "Correo_Electronico";
-            this.Correo_Electronico.FillWeight = 42.07061F;
-            this.Correo_Electronico.HeaderText = "Email";
-            this.Correo_Electronico.Name = "Correo_Electronico";
-            this.Correo_Electronico.ReadOnly = true;
-            this.Correo_Electronico.Width = 275;
-            // 
-            // Ciudad
-            // 
-            this.Ciudad.DataPropertyName = "Ciudad";
-            this.Ciudad.HeaderText = "Ciudad";
-            this.Ciudad.Name = "Ciudad";
-            this.Ciudad.ReadOnly = true;
-            // 
-            // Departamento
-            // 
-            this.Departamento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Departamento.DataPropertyName = "Departamento";
-            this.Departamento.HeaderText = "Departamento";
-            this.Departamento.Name = "Departamento";
-            this.Departamento.ReadOnly = true;
-            this.Departamento.Width = 150;
-            // 
-            // Active
-            // 
-            this.Active.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Active.DataPropertyName = "Active";
-            this.Active.HeaderText = "Activo";
-            this.Active.Name = "Active";
-            this.Active.ReadOnly = true;
-            this.Active.Width = 75;
-            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,7 +308,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1364, 731);
             this.Controls.Add(this.Export_Button);
-            this.Controls.Add(this.dglistaUsuarios);
+            this.Controls.Add(this.dglistaClientes);
             this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.textBox1);
@@ -321,7 +322,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.Clientes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dglistaUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dglistaClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,7 +331,7 @@
         #endregion
 
         private System.Windows.Forms.Button Export_Button;
-        private System.Windows.Forms.DataGridView dglistaUsuarios;
+        private System.Windows.Forms.DataGridView dglistaClientes;
         private System.Windows.Forms.Button RefreshButton;
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.TextBox textBox1;

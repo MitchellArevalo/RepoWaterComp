@@ -36,89 +36,7 @@ namespace Login
         {
 
 
-            try
-            {
-                string depto, Ciuda, codP, Client, estrato;
-
-                ConexionBD conex = new ConexionBD();
-                string sql = "SELECT* FROM ClientesTable WHERE Direccion = '" + txtdireccion.Text + "'";
-                SqlCommand comandocorreo = new SqlCommand(sql, conex.conectar());
-                SqlDataReader leer = comandocorreo.ExecuteReader();
-
-                if (leer.Read() == true)
-                {
-                    depto = leer["Departamento"].ToString();
-                    Ciuda = leer["Ciudad"].ToString();
-                    codP = leer["CodigoPredio"].ToString();
-                    Client = leer["Nombre"].ToString();
-                    estrato = leer["Estrato"].ToString();
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo encontrar un cliente con esa dirección");
-                    return;
-                }
-                llenarCampos(depto, Ciuda, codP, Client, estrato);
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("No se pudo conectar con la base de datos" + error);
-                return;
-            }
-            try
-            {
-                string promedioconsumo;
-                ConexionBD conex = new ConexionBD();
-                string sql = "SELECT AVG(Consumo) AS PromedioConsumo FROM ConsumoTable WHERE Direccion = '" + txtdireccion.Text + "'";
-                SqlCommand comandocorreo = new SqlCommand(sql, conex.conectar());
-                SqlDataReader leer = comandocorreo.ExecuteReader();
-                if (leer.Read() == true)
-                {
-                    promedioconsumo = leer["PromedioConsumo"].ToString();
-                    this.txtConsumoAnterior.Text = promedioconsumo + " m³";
-                }
-                else
-                {
-                    this.txtConsumoAnterior.Text = "Este cliente no tiene consumos anteriores";
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Error al buscar el consumo anterior");
-            }
-            string city = txtciudad.Text;
-            string departamento = txtdepartamento.Text;
-            string direccion = txtdireccion.Text;
-            string[] arreglo = direccion.Split('#');
-            string direccionArreglo = arreglo[0].ToString() + arreglo[1].ToString();
-            try
-            {
-                StringBuilder queryaddress = new StringBuilder();
-
-                queryaddress.Append("http://maps.google.com/maps?q=");
-                if (direccionArreglo != string.Empty)
-                {
-                    queryaddress.Append(direccionArreglo + "," + "+");
-                }
-                if (city != string.Empty)
-                {
-                    queryaddress.Append(city + "," + "+");
-                }
-                if (departamento != string.Empty)
-                {
-                    queryaddress.Append(departamento + "," + "+");
-                }
-                webBrowser1.Navigate(queryaddress.ToString());
-
-
-
-                this.btn_verificar.Visible = false;
-                this.btn_guardar.Visible = true;
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Error al verificar el cliente " + error.ToString());
-            }
+           
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -226,6 +144,93 @@ namespace Login
                 MessageBox.Show("Error al insertar el registro " + ex.ToString());
             }
             
+        }
+
+        private void txtdireccion_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                string depto, Ciuda, codP, Client, estrato;
+
+                ConexionBD conex = new ConexionBD();
+                string sql = "SELECT* FROM ClientesTable WHERE Direccion = '" + txtdireccion.Text + "'";
+                SqlCommand comandocorreo = new SqlCommand(sql, conex.conectar());
+                SqlDataReader leer = comandocorreo.ExecuteReader();
+
+                if (leer.Read() == true)
+                {
+                    depto = leer["Departamento"].ToString();
+                    Ciuda = leer["Ciudad"].ToString();
+                    codP = leer["CodigoPredio"].ToString();
+                    Client = leer["Nombre"].ToString();
+                    estrato = leer["Estrato"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo encontrar un cliente con esa dirección");
+                    return;
+                }
+                llenarCampos(depto, Ciuda, codP, Client, estrato);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("No se pudo conectar con la base de datos" + error);
+                return;
+            }
+            try
+            {
+                string promedioconsumo;
+                ConexionBD conex = new ConexionBD();
+                string sql = "SELECT AVG(Consumo) AS PromedioConsumo FROM ConsumoTable WHERE Direccion = '" + txtdireccion.Text + "'";
+                SqlCommand comandocorreo = new SqlCommand(sql, conex.conectar());
+                SqlDataReader leer = comandocorreo.ExecuteReader();
+                if (leer.Read() == true)
+                {
+                    promedioconsumo = leer["PromedioConsumo"].ToString();
+                    this.txtConsumoAnterior.Text = promedioconsumo + " m³";
+                }
+                else
+                {
+                    this.txtConsumoAnterior.Text = "Este cliente no tiene consumos anteriores";
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error al buscar el consumo anterior");
+            }
+            string city = txtciudad.Text;
+            string departamento = txtdepartamento.Text;
+            string direccion = txtdireccion.Text;
+            string[] arreglo = direccion.Split('#');
+            string direccionArreglo = arreglo[0].ToString() + arreglo[1].ToString();
+            try
+            {
+                StringBuilder queryaddress = new StringBuilder();
+
+                queryaddress.Append("http://maps.google.com/maps?q=");
+                if (direccionArreglo != string.Empty)
+                {
+                    queryaddress.Append(direccionArreglo + "," + "+");
+                }
+                if (city != string.Empty)
+                {
+                    queryaddress.Append(city + "," + "+");
+                }
+                if (departamento != string.Empty)
+                {
+                    queryaddress.Append(departamento + "," + "+");
+                }
+                webBrowser1.Navigate(queryaddress.ToString());
+
+
+
+               
+                this.btn_guardar.Visible = true;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al verificar el cliente " + error.ToString());
+            }
         }
     }
 }

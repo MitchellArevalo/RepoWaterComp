@@ -109,6 +109,25 @@ namespace Login
 
                 return;
             }
+            if (type == "Consumos")
+            {
+                ConexionBD conex = new ConexionBD();
+                string sql = "SELECT* FROM UsersTable WHERE Correo_Electronico = '" + correo_recuperado + "'";
+                SqlCommand comandocorreo = new SqlCommand(sql, conex.conectar());
+                SqlDataReader leer = comandocorreo.ExecuteReader();
+                if (leer.Read() == true)
+                {
+                    destinatario = leer["Correo_Electronico"].ToString();
+                    user = leer["Usuario"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("El correo electrónico no se encuentra en el sistema");
+                    return;
+                }
+                SendReportConsumoEmail(destinatario, user, path);
+                return;
+            }
         }
 
 
@@ -759,6 +778,116 @@ namespace Login
                 message.From = new MailAddress("mitchella2002@hotmail.es");
                 message.To.Add(new MailAddress(correo));
                 message.Subject = "Reporte Clientes WaterComp";
+                message.IsBodyHtml = true;
+                message.Body = bodymessage;
+                Attachment adjunto = new Attachment(path);
+                message.Attachments.Add(adjunto);
+                smtp.Port = 587;
+                smtp.Host = "smtp.office365.com";
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("mitchella2002@hotmail.es", "andru3005");
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(message);
+                MessageBox.Show("El correo se ha enviado correctamente a la dirección " + correo);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error al enviar el correo electronico" + ex);
+
+
+            }
+        }
+
+
+        //CRUD CONSUMOS//
+
+        public DataTable listarConsumos()
+        {
+            try
+            {
+                ConexionBD con1 = new ConexionBD();
+                string sql = "SELECT * FROM ConsumoTable";
+                Console.WriteLine(sql);
+                SqlCommand comando = new SqlCommand(sql, con1.conectar());
+                SqlDataReader dr = comando.ExecuteReader(CommandBehavior.CloseConnection);
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+
+                con1.desconectar();
+
+                return dt;
+
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+       /* public static bool UpdateConsumo(int ID, string mes, string consumo, string direccion, string valor, string codigoPredio, string Cliente, string estrato, string observaciones, string impreso, string departamento, string ciudad)
+        {
+            try
+            {
+                ConexionBD con = new ConexionBD();
+                SqlCommand comando = new SqlCommand("Update ClientesTable set Documento=@Documento, Nombre=@Nombre, Estrato=@Estrato, CodigoPredio=@CodigoPredio, Direccion=@Direccion, Correo_Electronico=@Correo_Electronico, Active=@Active where IdCliente=@IdCliente", con.conectar());
+                comando.Parameters.AddWithValue("@IdCliente", ID);
+                comando.Parameters.AddWithValue("@Documento", Documento_identidad);
+                comando.Parameters.AddWithValue("@Nombre", nombre);
+                comando.Parameters.AddWithValue("@Estrato", Estrato);
+                comando.Parameters.AddWithValue("@CodigoPredio", CodigoPredio);
+                comando.Parameters.AddWithValue("@Direccion", direccion);
+                comando.Parameters.AddWithValue("@Correo_Electronico", correo);
+                comando.Parameters.AddWithValue("@Active", activo);
+                comando.ExecuteNonQuery();
+                con.desconectar();
+
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+
+        }*/
+        public bool DeleteConsumo(string ID_eliminar)
+        {
+            try
+            {
+                ConexionBD bd = new ConexionBD();
+                SqlCommand comandoeliminar = new SqlCommand(string.Format("DELETE ConsumoTable WHERE IdConsumo = " + ID_eliminar), bd.conectar());
+                comandoeliminar.ExecuteNonQuery();
+                bd.desconectar();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+        public static void SendReportConsumoEmail(string correo, string user, string path)
+        {
+
+            string bodymessage =
+               " <center><h1>¡Hola " + user + "!</ h1 >" +
+               "<h2> Comparto contigo el siguiente reporte generado en la fecha: " + DateTime.Now.ToString("MM-dd-yyyy") + "</h2>" +
+               "<strong><p> Att:</p></strong>" +
+               "<img id=LogoAgua src=\"https://lh3.googleusercontent.com/jONhY5syUZpcJCTjbCe7uQI0antqANjjpUMY2LxDcFVSMfss4Y1YPIStVhQtGhBYl8PN=s85\" alt=\"Logo\"width=\"150px\"></center>";
+
+            try
+            {
+
+                MailMessage message = new MailMessage();
+                SmtpClient smtp = new SmtpClient();
+                message.From = new MailAddress("mitchella2002@hotmail.es");
+                message.To.Add(new MailAddress(correo));
+                message.Subject = "Reporte consumos WaterComp";
                 message.IsBodyHtml = true;
                 message.Body = bodymessage;
                 Attachment adjunto = new Attachment(path);

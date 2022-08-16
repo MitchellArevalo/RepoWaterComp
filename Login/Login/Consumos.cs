@@ -21,12 +21,11 @@ using System.Reflection;
 using iTextSharp.text.factories;
 using iTextSharp.text.pdf.codec;
 
-
 namespace Login
 {
-    public partial class Clientes : Form
+    public partial class Consumos : Form
     {
-        public Clientes()
+        public Consumos()
         {
             InitializeComponent();
         }
@@ -37,13 +36,13 @@ namespace Login
 
                 DatosBD datos = new DatosBD();
 
-                if (datos.listarClientes() == null)
+                if (datos.listarConsumos() == null)
                 {
                     MessageBox.Show("No se logró acceder a los datos");
                 }
                 else
                 {
-                    dglistaClientes.DataSource = datos.listarClientes().DefaultView;
+                    dglistaConsumos.DataSource = datos.listarConsumos().DefaultView;
                 }
             }
             catch (Exception a)
@@ -51,6 +50,49 @@ namespace Login
                 MessageBox.Show(a.Message);
             }
 
+        }
+        private void Consumos_Load(object sender, EventArgs e)
+        {
+            llenarGrid();
+        }
+
+        private void Deletebutton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nombre;
+                nombre = Convert.ToString(dglistaConsumos.CurrentRow.Cells["Cliente"].Value);
+
+                DialogResult resul = MessageBox.Show("Seguro que quiere eliminar el consumo de " + nombre + " del sistema?", "Eliminar Registro", MessageBoxButtons.YesNo);
+                if (resul == DialogResult.Yes)
+                {
+                    string ID_eliminar;
+
+                    ID_eliminar = Convert.ToString(dglistaConsumos.CurrentRow.Cells["IdConsumo"].Value);
+
+                    DatosBD deleteMethod = new DatosBD();
+                    bool eliminado = deleteMethod.DeleteConsumo(ID_eliminar);
+                    if (eliminado == true)
+                    {
+                        MessageBox.Show("El consumo se ha eliminado correctamente");
+                        llenarGrid();
+                        this.Refresh();
+                        return;
+                    }
+                    MessageBox.Show("Ocurrió un error al intentar eliminar el consumo");
+                }
+
+
+            }
+            catch (SqlException wrong)
+            {
+                MessageBox.Show("Error Generated. Details: " + wrong.ToString());
+            }
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            llenarGrid();
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -61,109 +103,13 @@ namespace Login
             this.Hide();
         }
 
-        private void Clientes_Load(object sender, EventArgs e)
-        {
-            llenarGrid();
-        }
-
-        private void Add_Button_Click(object sender, EventArgs e)
-        {
-            Form viajar = new agregar_Cliente();
-            viajar.Show();
-
-        }
-
-        private void RefreshButton_Click(object sender, EventArgs e)
-        {
-            llenarGrid();
-            this.Refresh();
-            this.textBox1.Clear();
-        }
-
-        private void Deletebutton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string nombre;
-                nombre = Convert.ToString(dglistaClientes.CurrentRow.Cells["Nombre"].Value);
-
-                DialogResult resul = MessageBox.Show("Seguro que quiere eliminar a " + nombre + " del sistema?", "Eliminar Registro", MessageBoxButtons.YesNo);
-                if (resul == DialogResult.Yes)
-                {
-                    string ID_eliminar;
-
-                    ID_eliminar = Convert.ToString(dglistaClientes.CurrentRow.Cells["IdCliente"].Value);
-
-                    DatosBD deleteMethod = new DatosBD();
-                    bool eliminado = deleteMethod.DeleteClient(ID_eliminar);
-                    if (eliminado == true)
-                    {
-                        MessageBox.Show("El usuario se ha eliminado correctamente");
-                        llenarGrid();
-                        this.Refresh();
-                        return;
-                    }
-                    MessageBox.Show("Ocurrió un error al intentar eliminar el cliente");
-                }
-
-
-            }
-            catch (SqlException wrong)
-            {
-                MessageBox.Show("Error Generated. Details: " + wrong.ToString());
-            }
-        }
-
-        private void editar_Button_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string id, nombre, Documento_identidad, correo, Estrato, CodP, Direccion, active, depto, city;
-                id = Convert.ToString(dglistaClientes.CurrentRow.Cells["IdCliente"].Value);
-                nombre = Convert.ToString(dglistaClientes.CurrentRow.Cells["Nombre"].Value);
-                Documento_identidad = Convert.ToString(dglistaClientes.CurrentRow.Cells["Documento"].Value);
-                correo = Convert.ToString(dglistaClientes.CurrentRow.Cells["Correo_Electronico"].Value);
-                Estrato = Convert.ToString(dglistaClientes.CurrentRow.Cells["Estrato"].Value);
-                CodP = Convert.ToString(dglistaClientes.CurrentRow.Cells["CodigoPredio"].Value);
-                Direccion = Convert.ToString(dglistaClientes.CurrentRow.Cells["Direccion"].Value);
-                active = Convert.ToString(dglistaClientes.CurrentRow.Cells["Active"].Value);
-                depto = Convert.ToString(dglistaClientes.CurrentRow.Cells["Departamento"].Value);
-                city = Convert.ToString(dglistaClientes.CurrentRow.Cells["Ciudad"].Value);
-
-                Editar_Cliente.llenarCamposEditables(id, nombre, Documento_identidad, Estrato, CodP, Direccion, correo, active, depto, city);
-            }
-            catch (SqlException wrong)
-            {
-                MessageBox.Show("Error Generated. Details: " + wrong.ToString());
-            }
-            Form viajar = new Editar_Cliente();
-            viajar.Show();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-            string infoBuscada = textBox1.Text;
-            DatosBD datos = new DatosBD();
-
-            if (datos.listarClienteBuscado(infoBuscada) == null)
-            {
-                MessageBox.Show("No se logró acceder a los datos");
-            }
-            else
-            {
-                dglistaClientes.DataSource = datos.listarClienteBuscado(infoBuscada).DefaultView;
-            }
-            this.Refresh();
-        }
-
         private void Export_Button_Click(object sender, EventArgs e)
         {
-            if (dglistaClientes.Rows.Count > 0)
+            if (dglistaConsumos.Rows.Count > 0)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "PDF (*.pdf)|*.pdf";
-                sfd.FileName = "Clientes-" + DateTime.Now.ToString("MM-dd-yyyy");
+                sfd.FileName = "Consumos-" + DateTime.Now.ToString("MM-dd-yyyy");
                 string ReportUser;
 
                 bool fileError = false;
@@ -187,7 +133,7 @@ namespace Login
                         try
                         {
                             ReportUser = sfd.FileName;
-                            PdfPTable pdfTable = new PdfPTable(7);
+                            PdfPTable pdfTable = new PdfPTable(8);
                             pdfTable.DefaultCell.Padding = 5;
                             pdfTable.WidthPercentage = 100;
                             pdfTable.HorizontalAlignment = Element.ALIGN_MIDDLE;
@@ -195,7 +141,7 @@ namespace Login
                             iTextSharp.text.Font fuenteFecha = FontFactory.GetFont("Calibri", 10, iTextSharp.text.Font.BOLD, new iTextSharp.text.BaseColor(101, 115, 162));
 
 
-                            foreach (DataGridViewColumn column in dglistaClientes.Columns)
+                            foreach (DataGridViewColumn column in dglistaConsumos.Columns)
                             {
                                 if (column.Visible == true)
                                 {
@@ -208,12 +154,46 @@ namespace Login
                                 }
                             }
 
-                            for (int row = 0; row < dglistaClientes.Rows.Count; ++row)
+                            for (int row = 0; row < dglistaConsumos.Rows.Count; ++row)
                             {
-                                for (int col = 1; col < 8; ++col)
+                                for (int col = 1; col < 9; ++col)
                                 {
-                                    object value = dglistaClientes.Rows[row].Cells[col].Value;
-                                    pdfTable.AddCell(value.ToString());
+                                    if (col == 4)
+                                    {
+                                        object value = dglistaConsumos.Rows[row].Cells[4].Value;
+                                        pdfTable.AddCell("$" + value.ToString());
+                                    }
+                                    else if (col == 2)
+                                    {
+                                        object value = dglistaConsumos.Rows[row].Cells[2].Value;
+                                        pdfTable.AddCell(value.ToString() + " m³");
+                                    }
+                                    else if (col == 5)
+                                    {
+                                        object value = dglistaConsumos.Rows[row].Cells[6].Value;
+                                        pdfTable.AddCell(value.ToString());
+                                    }
+                                    else if (col == 6)
+                                    {
+                                        object value = dglistaConsumos.Rows[row].Cells[8].Value;
+                                        pdfTable.AddCell(value.ToString());
+                                    }
+                                    else if (col == 7)
+                                    {
+                                        object value = dglistaConsumos.Rows[row].Cells[10].Value;
+                                        pdfTable.AddCell(value.ToString());
+                                    }
+                                    else if (col == 8)
+                                    {
+                                        object value = dglistaConsumos.Rows[row].Cells[11].Value;
+                                        pdfTable.AddCell(value.ToString());
+                                    }
+                                    else
+                                    {
+                                        object value = dglistaConsumos.Rows[row].Cells[col].Value;
+                                        pdfTable.AddCell(value.ToString());
+                                    }
+                                    
                                 }
                             }
 
@@ -225,7 +205,7 @@ namespace Login
                             p.Alignment = Element.ALIGN_CENTER;
                             p.Leading = colorTitulo.Size * 1f;
                             p.SpacingAfter = colorTitulo.Size * 1f;
-                            p.Add(new Phrase("Reporte Clientes", colorTitulo));
+                            p.Add(new Phrase("Reporte consumos", colorTitulo));
 
                             Paragraph date = new Paragraph(Width);
 
@@ -266,7 +246,7 @@ namespace Login
                                 Form viajar = new Enviar_Reporte();
                                 viajar.Show();
                                 Enviar_Reporte.archivo = ReportUser;
-                                Enviar_Reporte.type = "Cliente";
+                                Enviar_Reporte.type = "Consumos";
 
                             }
                             else
@@ -289,9 +269,27 @@ namespace Login
 
         }
 
-        private void dglistaUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void editar_Button_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string id, consumo,  Observa, Direcc;
+                id = Convert.ToString(dglistaConsumos.CurrentRow.Cells["IdConsumo"].Value);
+                consumo = Convert.ToString(dglistaConsumos.CurrentRow.Cells["Consumo"].Value);
+                Observa = Convert.ToString(dglistaConsumos.CurrentRow.Cells["Observaciones"].Value);
+                Direcc = Convert.ToString(dglistaConsumos.CurrentRow.Cells["Direccion"].Value);
 
+                Editar_Consumo.id_act = id;
+                Editar_Consumo.consumo_act = consumo;
+                Editar_Consumo.comentarios_act = Observa;
+                Editar_Consumo.adress_act = Direcc;
+            }
+            catch (SqlException wrong)
+            {
+                MessageBox.Show("Error Generated. Details: " + wrong.ToString());
+            }
+            Form viajar = new Editar_Consumo();
+            viajar.Show();
         }
     }
 }

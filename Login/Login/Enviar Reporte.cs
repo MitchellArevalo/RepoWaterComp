@@ -36,6 +36,13 @@ namespace Login
                 
                 return;
             }
+            if (type == "Consumos")
+            {
+                DatosBD.EnviarCorreo(correo, archivo, "Consumos");
+                this.Close();
+
+                return;
+            }
 
         }
 
