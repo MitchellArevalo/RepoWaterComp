@@ -91,6 +91,7 @@
             this.Name = "Consumo_o_Registros";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "¿Que desea realizar?";
+            this.Load += new System.EventHandler(this.Consumo_o_Registros_Load);
             this.ResumeLayout(false);
 
         }

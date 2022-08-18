@@ -156,7 +156,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(193)))), ((int)(((byte)(203)))));
             this.panel2.Controls.Add(this.Consumolabel);
-            this.panel2.Location = new System.Drawing.Point(0, 306);
+            this.panel2.Location = new System.Drawing.Point(1, 306);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(391, 287);
             this.panel2.TabIndex = 14;
@@ -167,7 +167,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(207)))), ((int)(((byte)(211)))));
             this.panel3.Controls.Add(this.Imprimirlabel);
-            this.panel3.Location = new System.Drawing.Point(392, 306);
+            this.panel3.Location = new System.Drawing.Point(392, 305);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(369, 286);
             this.panel3.TabIndex = 15;
@@ -178,7 +178,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(31)))), ((int)(((byte)(60)))));
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(762, 1);
+            this.panel4.Location = new System.Drawing.Point(761, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(369, 592);
             this.panel4.TabIndex = 16;
@@ -279,10 +279,10 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1130, 657);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panelclientes);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox4);

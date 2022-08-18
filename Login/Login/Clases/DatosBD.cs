@@ -183,7 +183,7 @@ namespace Login
                 if (leer.Read() == true)
                 {
                     doc_select = leer["Rol"].ToString();
-                    if (doc_select == "Administrador")
+                    if (doc_select == "Facturador")
                     {
                         return true;
                     }
@@ -290,7 +290,7 @@ namespace Login
             bool ingresoExitoso;
             username_session = username;
             ConexionBD connection = new ConexionBD();
-            string validar = "SELECT * FROM UsersTable WHERE Usuario = '" + username + "' AND Password = '" + password + "'";
+            string validar = "SELECT * FROM UsersTable WHERE Usuario = '" + username + "' AND Active = '" + "True" + "' AND Password = '" + password + "'";
             SqlDataAdapter sda = new SqlDataAdapter(validar, connection.conectar());
             DataTable DB = new DataTable();
             sda.Fill(DB);

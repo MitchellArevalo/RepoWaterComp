@@ -79,18 +79,13 @@ namespace Login
         private void UsuariosLabel_Click(object sender, EventArgs e)
         {
             //USUARIOS
-            if(Admin_Profile == true)
-            {
-                Form Usuarios = new Usuarios();
-                Usuarios.Show();
 
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Tu perfil no tiene los permisos para entrar a este apartado");
-            }
-           
+
+            Form Usuarios = new Usuarios();
+            Usuarios.Show();
+
+            this.Hide();
+
         }
         private void Calcularlabel_Click(object sender, EventArgs e)
         {
@@ -105,15 +100,15 @@ namespace Login
         {
 
         }
-        
+
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            
+
         }
-        
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-        
+
         }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -121,7 +116,7 @@ namespace Login
         }
         private void Calcularlabel_DragLeave(object sender, EventArgs e)
         {
-            
+
         }
         private void pictureBox4_Click(object sender, EventArgs e)
         {
@@ -129,7 +124,7 @@ namespace Login
         }
         private void panelclientes_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
@@ -194,7 +189,7 @@ namespace Login
             button1.BackColor = Color.Black;
         }
 
-       
+
     }
-    
+
 }

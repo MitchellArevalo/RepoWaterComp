@@ -70,6 +70,7 @@
             this.Menu.TabIndex = 1;
             this.Menu.Text = "Menú principal";
             this.Menu.UseVisualStyleBackColor = false;
+            this.Menu.Click += new System.EventHandler(this.Menu_Click);
             // 
             // label1
             // 
@@ -183,6 +184,7 @@
             this.Name = "Imprimir_Factura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Imprimir_Factura";
+            this.Load += new System.EventHandler(this.Imprimir_Factura_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
