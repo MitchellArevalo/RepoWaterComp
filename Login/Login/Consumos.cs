@@ -291,5 +291,22 @@ namespace Login
             Form viajar = new Editar_Consumo();
             viajar.Show();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string infoBuscada = textBox1.Text;
+
+            DatosBD datos = new DatosBD();
+
+            if (datos.listarConsumoBuscado(infoBuscada) == null)
+            {
+                MessageBox.Show("No se logró acceder a los datos");
+            }
+            else
+            {
+                dglistaConsumos.DataSource = datos.listarConsumoBuscado(infoBuscada).DefaultView;
+            }
+            this.Refresh();
+        }
     }
 }

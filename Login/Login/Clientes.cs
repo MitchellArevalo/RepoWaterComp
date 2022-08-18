@@ -187,7 +187,7 @@ namespace Login
                         try
                         {
                             ReportUser = sfd.FileName;
-                            PdfPTable pdfTable = new PdfPTable(7);
+                            PdfPTable pdfTable = new PdfPTable(9);
                             pdfTable.DefaultCell.Padding = 5;
                             pdfTable.WidthPercentage = 100;
                             pdfTable.HorizontalAlignment = Element.ALIGN_MIDDLE;
@@ -210,7 +210,7 @@ namespace Login
 
                             for (int row = 0; row < dglistaClientes.Rows.Count; ++row)
                             {
-                                for (int col = 1; col < 8; ++col)
+                                for (int col = 1; col < 10; ++col)
                                 {
                                     object value = dglistaClientes.Rows[row].Cells[col].Value;
                                     pdfTable.AddCell(value.ToString());

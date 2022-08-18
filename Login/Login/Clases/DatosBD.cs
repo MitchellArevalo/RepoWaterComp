@@ -17,7 +17,8 @@ namespace Login
 {
     internal class DatosBD
     {
-
+        public static string CredencialCorreo = "watercomp@hotmail.com";
+        public static string CredencialContra = "aguaproyecto12345";
         public static string username_session;
 
         //VALIDACIONES GLOBALES//
@@ -466,7 +467,7 @@ namespace Login
 
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient();
-                message.From = new MailAddress("mitchella2002@hotmail.es");
+                message.From = new MailAddress(CredencialCorreo);
                 message.To.Add(new MailAddress(correo));
                 message.Subject = "Recuperación de contraseña";
                 message.IsBodyHtml = true;
@@ -475,7 +476,7 @@ namespace Login
                 smtp.Host = "smtp.office365.com";
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("mitchella2002@hotmail.es", "andru3005");
+                smtp.Credentials = new NetworkCredential(CredencialCorreo, CredencialContra);
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
                 MessageBox.Show("El correo se ha enviado correctamente a la dirección " + correo);
@@ -503,7 +504,7 @@ namespace Login
 
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient();
-                message.From = new MailAddress("mitchella2002@hotmail.es");
+                message.From = new MailAddress(CredencialCorreo);
                 message.To.Add(new MailAddress(correo));
                 message.Subject = "Reporte Usuarios WaterComp";
                 message.IsBodyHtml = true;
@@ -514,7 +515,7 @@ namespace Login
                 smtp.Host = "smtp.office365.com";
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("mitchella2002@hotmail.es", "andru3005");
+                smtp.Credentials = new NetworkCredential(CredencialCorreo, CredencialContra);
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
                 MessageBox.Show("El correo se ha enviado correctamente a la dirección " + correo);
@@ -775,7 +776,7 @@ namespace Login
 
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient();
-                message.From = new MailAddress("mitchella2002@hotmail.es");
+                message.From = new MailAddress(CredencialCorreo);
                 message.To.Add(new MailAddress(correo));
                 message.Subject = "Reporte Clientes WaterComp";
                 message.IsBodyHtml = true;
@@ -786,7 +787,7 @@ namespace Login
                 smtp.Host = "smtp.office365.com";
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("mitchella2002@hotmail.es", "andru3005");
+                smtp.Credentials = new NetworkCredential(CredencialCorreo, CredencialContra);
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
                 MessageBox.Show("El correo se ha enviado correctamente a la dirección " + correo);
@@ -827,20 +828,44 @@ namespace Login
                 return null;
             }
         }
-       /* public static bool UpdateConsumo(int ID, string mes, string consumo, string direccion, string valor, string codigoPredio, string Cliente, string estrato, string observaciones, string impreso, string departamento, string ciudad)
+        public DataTable listarConsumoBuscado(string infoBuscada)
+        {
+            try
+            {
+                ConexionBD conn = new ConexionBD();
+                string query = "SELECT * FROM ConsumoTable WHERE MesAño_Consumo LIKE '%" + infoBuscada + "%' OR Cliente LIKE '%" + infoBuscada + "%' OR Estrato LIKE '%" + infoBuscada + "%' OR Direccion LIKE '%" + infoBuscada + "%' OR Ciudad LIKE '%" + infoBuscada + "%'OR Departamento LIKE '%" + infoBuscada + "%'";
+                SqlCommand cmd = new SqlCommand(query, conn.conectar());
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+       
+        public static bool UpdateConsumo(int ID, int consumo, string direccion, int valor, string codigoPredio, string Cliente, string estrato, string observaciones, string departamento, string ciudad)
         {
             try
             {
                 ConexionBD con = new ConexionBD();
-                SqlCommand comando = new SqlCommand("Update ClientesTable set Documento=@Documento, Nombre=@Nombre, Estrato=@Estrato, CodigoPredio=@CodigoPredio, Direccion=@Direccion, Correo_Electronico=@Correo_Electronico, Active=@Active where IdCliente=@IdCliente", con.conectar());
-                comando.Parameters.AddWithValue("@IdCliente", ID);
-                comando.Parameters.AddWithValue("@Documento", Documento_identidad);
-                comando.Parameters.AddWithValue("@Nombre", nombre);
-                comando.Parameters.AddWithValue("@Estrato", Estrato);
-                comando.Parameters.AddWithValue("@CodigoPredio", CodigoPredio);
+                SqlCommand comando = new SqlCommand("Update ConsumoTable set Consumo=@Consumo, Direccion=@Direccion, Valor_Total=@Valor_Total, CodigoPredio=@CodigoPredio, Cliente=@Cliente, Estrato=@Estrato, Observaciones=@Observaciones, Departamento=@Departamento, Ciudad=@Ciudad where IdConsumo=@IdConsumo", con.conectar());
+                comando.Parameters.AddWithValue("@IdConsumo", ID);
+                comando.Parameters.AddWithValue("@Consumo", consumo);
                 comando.Parameters.AddWithValue("@Direccion", direccion);
-                comando.Parameters.AddWithValue("@Correo_Electronico", correo);
-                comando.Parameters.AddWithValue("@Active", activo);
+                comando.Parameters.AddWithValue("@Valor_Total", valor);
+                comando.Parameters.AddWithValue("@CodigoPredio", codigoPredio);
+                comando.Parameters.AddWithValue("@Cliente", Cliente);
+                comando.Parameters.AddWithValue("@Estrato", estrato);
+                comando.Parameters.AddWithValue("@Observaciones", observaciones);
+                comando.Parameters.AddWithValue("@Departamento", departamento);
+                comando.Parameters.AddWithValue("@Ciudad", ciudad);
                 comando.ExecuteNonQuery();
                 con.desconectar();
 
@@ -853,7 +878,7 @@ namespace Login
             }
 
 
-        }*/
+        }
         public bool DeleteConsumo(string ID_eliminar)
         {
             try
@@ -885,7 +910,7 @@ namespace Login
 
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient();
-                message.From = new MailAddress("mitchella2002@hotmail.es");
+                message.From = new MailAddress(CredencialCorreo);
                 message.To.Add(new MailAddress(correo));
                 message.Subject = "Reporte consumos WaterComp";
                 message.IsBodyHtml = true;
@@ -896,7 +921,7 @@ namespace Login
                 smtp.Host = "smtp.office365.com";
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("mitchella2002@hotmail.es", "andru3005");
+                smtp.Credentials = new NetworkCredential(CredencialCorreo, CredencialContra);
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
                 MessageBox.Show("El correo se ha enviado correctamente a la dirección " + correo);
@@ -911,5 +936,188 @@ namespace Login
             }
         }
 
+
+        //METODOS FACTURA//
+
+        public string ClienteDireccionFactura(string infoBuscada)
+        {
+            ConexionBD conex = new ConexionBD();
+            string sql = "SELECT Direccion FROM ClientesTable WHERE Documento = '" + infoBuscada + "'";
+            SqlCommand comandocorreo = new SqlCommand(sql, conex.conectar());
+
+            SqlDataAdapter tabla = new SqlDataAdapter(comandocorreo);
+            DataTable miTabla = new DataTable();
+
+            tabla.Fill(miTabla);
+            string CodP_select;
+            if (miTabla.Rows.Count > 0)
+            {
+                //MessageBox.Show(miTabla.Rows.Count.ToString());
+                SqlDataReader leer = comandocorreo.ExecuteReader();
+
+                if (leer.Read() == true)
+                {
+                    CodP_select = leer["Direccion"].ToString();
+                    //Imprimir_Factura.clienteFromClientsTable = leer["Nombre"].ToString();
+                    conex.desconectar();
+
+                    return CodP_select;
+
+                }
+            }
+
+            return null;
+        }
+        public string ClienteNombreFactura(string infoBuscada)
+        {
+            ConexionBD conex = new ConexionBD();
+            string sql = "SELECT Direccion, Nombre FROM ClientesTable WHERE Documento = '" + infoBuscada + "'";
+            SqlCommand comandocorreo = new SqlCommand(sql, conex.conectar());
+
+            SqlDataAdapter tabla = new SqlDataAdapter(comandocorreo);
+            DataTable miTabla = new DataTable();
+
+            tabla.Fill(miTabla);
+            string CodP_select;
+            if (miTabla.Rows.Count > 0)
+            {
+                //MessageBox.Show(miTabla.Rows.Count.ToString());
+                SqlDataReader leer = comandocorreo.ExecuteReader();
+
+                if (leer.Read() == true)
+                {
+                    CodP_select = leer["Nombre"].ToString();
+                    conex.desconectar();
+
+                    return CodP_select;
+
+                }
+            }
+
+            return null;
+        }
+        public string ClienteMailFactura(string infoBuscada)
+        {
+            ConexionBD conex = new ConexionBD();
+            string sql = "SELECT Correo_Electronico FROM ClientesTable WHERE Documento = '" + infoBuscada + "'";
+            SqlCommand comandocorreo = new SqlCommand(sql, conex.conectar());
+
+            SqlDataAdapter tabla = new SqlDataAdapter(comandocorreo);
+            DataTable miTabla = new DataTable();
+
+            tabla.Fill(miTabla);
+            string CodP_select;
+            if (miTabla.Rows.Count > 0)
+            {
+                //MessageBox.Show(miTabla.Rows.Count.ToString());
+                SqlDataReader leer = comandocorreo.ExecuteReader();
+
+                if (leer.Read() == true)
+                {
+                    CodP_select = leer["Correo_Electronico"].ToString();
+                    conex.desconectar();
+
+                    return CodP_select;
+
+                }
+            }
+
+            return null;
+        }
+        public string ClienteConsumoFactura(string Fecha, string Direccion)
+        {
+            ConexionBD conex = new ConexionBD();
+            string sql = "SELECT Consumo FROM ConsumoTable WHERE MesAño_Consumo = '" + Fecha + "' AND Direccion = '" + Direccion + "'";
+            SqlCommand comandocorreo = new SqlCommand(sql, conex.conectar());
+
+            SqlDataAdapter tabla = new SqlDataAdapter(comandocorreo);
+            DataTable miTabla = new DataTable();
+
+            tabla.Fill(miTabla);
+            string CodP_select;
+            if (miTabla.Rows.Count > 0)
+            {
+                //MessageBox.Show(miTabla.Rows.Count.ToString());
+                SqlDataReader leer = comandocorreo.ExecuteReader();
+
+                if (leer.Read() == true)
+                {
+                    CodP_select = leer["Consumo"].ToString();
+                    conex.desconectar();
+
+                    return CodP_select;
+
+                }
+            }
+
+            return null;
+        }
+        public string ClienteValorFactura(string Fecha, string Direccion)
+        {
+            ConexionBD conex = new ConexionBD();
+            string sql = "SELECT Valor_Total FROM ConsumoTable WHERE MesAño_Consumo = '" + Fecha + "' AND Direccion = '" + Direccion + "'";
+            SqlCommand comandocorreo = new SqlCommand(sql, conex.conectar());
+
+            SqlDataAdapter tabla = new SqlDataAdapter(comandocorreo);
+            DataTable miTabla = new DataTable();
+
+            tabla.Fill(miTabla);
+            string CodP_select;
+            if (miTabla.Rows.Count > 0)
+            {
+                //MessageBox.Show(miTabla.Rows.Count.ToString());
+                SqlDataReader leer = comandocorreo.ExecuteReader();
+
+                if (leer.Read() == true)
+                {
+                    CodP_select = leer["Valor_Total"].ToString();
+                    conex.desconectar();
+
+                    return CodP_select;
+
+                }
+            }
+
+            return null;
+        }
+        public static void EnviarFacturaMail(string correo, string user, string path)
+        {
+
+            string bodymessage =
+               " <center><h1>¡Hola " + user + "!</ h1 >" +
+               "<h2> Comparto contigo la factura generada en la fecha: " + DateTime.Now.ToString("MM-dd-yyyy") + "</h2>" +
+               "<strong><p> Att:</p></strong>" +
+               "<img id=LogoAgua src=\"https://lh3.googleusercontent.com/jONhY5syUZpcJCTjbCe7uQI0antqANjjpUMY2LxDcFVSMfss4Y1YPIStVhQtGhBYl8PN=s85\" alt=\"Logo\"width=\"150px\"></center>";
+
+            try
+            {
+
+                MailMessage message = new MailMessage();
+                SmtpClient smtp = new SmtpClient();
+                message.From = new MailAddress(CredencialCorreo);
+                message.To.Add(new MailAddress(correo));
+                message.Subject = "Factura de cliente WaterComp";
+                message.IsBodyHtml = true;
+                message.Body = bodymessage;
+                Attachment adjunto = new Attachment(path);
+                message.Attachments.Add(adjunto);
+                smtp.Port = 587;
+                smtp.Host = "smtp.office365.com";
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential(CredencialCorreo, CredencialContra);
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(message);
+                MessageBox.Show("El correo se ha enviado correctamente a la dirección " + correo);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error al enviar el correo electronico" + ex);
+
+
+            }
+        }
     }
 }

@@ -18,27 +18,35 @@ namespace Login
         }
         public static string archivo;
         public static string type;
+        public static string cliente;
         private void RecuperarPassword_Click(object sender, EventArgs e)
         {
             string correo;
             correo = CorreoRecuperar.Text;
             if (type == "Usuario")
             {
-                DatosBD.EnviarCorreo(correo, archivo, "Usuario");
+                DatosBD.EnviarCorreo(correo, archivo, type);
                 this.Close();
                 
                 return;
             }
             if (type == "Cliente")
             {
-                DatosBD.EnviarCorreo(correo, archivo, "Cliente");
+                DatosBD.EnviarCorreo(correo, archivo, type);
                 this.Close();
                 
                 return;
             }
             if (type == "Consumos")
             {
-                DatosBD.EnviarCorreo(correo, archivo, "Consumos");
+                DatosBD.EnviarCorreo(correo, archivo, type);
+                this.Close();
+
+                return;
+            }
+            if (type == "Factura")
+            {
+                DatosBD.EnviarFacturaMail(correo, cliente, archivo);
                 this.Close();
 
                 return;

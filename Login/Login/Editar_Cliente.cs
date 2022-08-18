@@ -19,6 +19,14 @@ namespace Login
         }
         public static string id_buscado, doc, name, mail, predio, direcc, Estrato_p, rolUpdate, departamento, ciudad;
 
+        private void txt_documento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = e.KeyChar != (char)Keys.Back;
+            }
+        }
+
         private void btn_salir_Click(object sender, EventArgs e)
         {
             this.Close();

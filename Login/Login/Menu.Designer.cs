@@ -69,6 +69,7 @@
             this.Imprimirlabel.TabIndex = 8;
             this.Imprimirlabel.Text = "Imprimir";
             this.Imprimirlabel.Visible = false;
+            this.Imprimirlabel.Click += new System.EventHandler(this.Imprimirlabel_Click);
             // 
             // UsuariosLabel
             // 

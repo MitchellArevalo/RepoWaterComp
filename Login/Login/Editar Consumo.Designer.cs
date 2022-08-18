@@ -250,6 +250,7 @@
             this.txtdireccion.Name = "txtdireccion";
             this.txtdireccion.Size = new System.Drawing.Size(382, 27);
             this.txtdireccion.TabIndex = 21;
+            this.txtdireccion.TextChanged += new System.EventHandler(this.txtdireccion_TextChanged);
             this.txtdireccion.Leave += new System.EventHandler(this.txtdireccion_Leave);
             // 
             // panel1

@@ -68,7 +68,14 @@ namespace Login
 
             this.Hide();
         }
-        
+        //IMPRIMIR FACTURA
+        private void Imprimirlabel_Click(object sender, EventArgs e)
+        {
+            Form viajar = new Imprimir_Factura();
+            viajar.Show();
+
+            this.Hide();
+        }
         private void UsuariosLabel_Click(object sender, EventArgs e)
         {
             //USUARIOS
@@ -187,7 +194,7 @@ namespace Login
             button1.BackColor = Color.Black;
         }
 
-        
+       
     }
     
 }

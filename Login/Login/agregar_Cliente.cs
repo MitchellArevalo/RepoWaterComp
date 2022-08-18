@@ -1246,6 +1246,13 @@ namespace Login
         {
 
         }
-       
+
+        private void txt_documento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = e.KeyChar != (char)Keys.Back;
+            }
+        }
     }
 }

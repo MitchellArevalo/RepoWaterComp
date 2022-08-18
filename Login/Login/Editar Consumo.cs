@@ -52,8 +52,13 @@ namespace Login
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo encontrar un cliente con esa dirección");
+                    if (txtdireccion.Text != string.Empty)
+                    {
+                        MessageBox.Show("No se pudo encontrar un cliente con esa dirección");
+                        return;
+                    }
                     return;
+                    
                 }
                 llenarCampos(depto, Ciuda, codP, Client, estrato);
             }
@@ -94,39 +99,76 @@ namespace Login
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-           /* try
+            try
             {
                 int ID = int.Parse(id_act);
-                if (txtObservaciones.Text == string.Empty || txtdireccion.Text == string.Empty || txtconsumo.Text == string.Empty || txtnamecliente.Text == string.Empty)
+                int valor = 0;
+                int Consumo = 0;
+                Consumo = int.Parse(txtconsumo.Text);
+                if (txtnamecliente.Text == string.Empty || txtconsumo.Text == string.Empty || txtdireccion.Text == string.Empty || txtObservaciones.Text == string.Empty)
                 {
                     MessageBox.Show("Todos los campos deben estar llenos");
                     return;
                 }
-               
+                if (txtdireccion.Text != adress_act)
+                {
+                    DialogResult resul = MessageBox.Show("¿Esta seguro que desea cambiar la dirección de residencia?", "Cambiar dirección", MessageBoxButtons.YesNo);
+                    if (resul == DialogResult.No)
+                    {
+                        MessageBox.Show("Operación cancelada");
+                        this.Hide();
+                        return;
+                    }
+                }
+                if (Estratosocialactual == "1")
+                {
+                    if (Consumo < 30)
+                    {
+                        valor = Consumo * 2000;
+                    }
+                    if (Consumo > 30)
+                    {
+                        valor = Consumo * 2500;
+                    }
+                }
+                else if (Estratosocialactual == "2")
+                {
+                    if (Consumo < 30)
+                    {
+                        valor = Consumo * 3000;
+                    }
+                    if (Consumo > 30)
+                    {
+                        valor = Consumo * 4000;
+                    }
+                }
                 try
                 {
-                    if (DatosBD.UpdateClientes(ID,txt) == false)
+                    if (DatosBD.UpdateConsumo(ID, Consumo, txtdireccion.Text,valor,txtxcodigopredio.Text,txtnamecliente.Text,Estratosocialactual,txtObservaciones.Text,txtdepartamento.Text,txtciudad.Text) == false)
                     {
                         MessageBox.Show("Hubo un error al intentar actualizar el consumo");
                         return;
                     }
-                    MessageBox.Show("Usuario actualizado");
+                    MessageBox.Show("Consumo actualizado");
+
                     this.Close();
 
                 }
-                catch (Exception ex)
+                catch (Exception re1)
                 {
-                    MessageBox.Show("Hubo un error al intentar actualizar el usuario " + ex);
+                    MessageBox.Show(re1.ToString());
                 }
-
-
-
             }
-            catch (SqlException ex1)
+            catch (Exception re)
             {
+                MessageBox.Show(re.ToString());
+            }
+        }
+        
 
-                MessageBox.Show("Error Generated. Details: " + ex1.ToString());
-            }*/
+        private void txtdireccion_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

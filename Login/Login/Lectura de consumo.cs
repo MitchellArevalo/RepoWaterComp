@@ -128,6 +128,25 @@ namespace Login
                     Valor_Total = Consumo * 4000;
                 }
             }
+            try
+            {
+                ConexionBD conex = new ConexionBD();
+                string sql = "SELECT* FROM ConsumoTable WHERE Direccion = '" + txtdireccion.Text + "' AND MesAño_Consumo = '" + MesAño_Consumo + "'";
+                SqlCommand comandocorreo = new SqlCommand(sql, conex.conectar());
+                SqlDataReader leer = comandocorreo.ExecuteReader();
+
+                if (leer.Read() == true)
+                {
+                    MessageBox.Show("Ya existe un registro de consumo para este cliente en este mes");
+                    return;
+                }
+                
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("No se pudo conectar con la base de datos" + error);
+                return;
+            }
             //MessageBox.Show(Valor_Total.ToString());
             try
             {
@@ -138,6 +157,20 @@ namespace Login
 
                 con.desconectar();
                 MessageBox.Show("Registro guardado exitosamente");
+
+                DialogResult resul = MessageBox.Show("¿Desea realizar otro registro?", "Generar registro", MessageBoxButtons.YesNo);
+                if (resul == DialogResult.Yes)
+                {
+                    Form viajar = new Lectura_de_consumo();
+                    viajar.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    Form viajar = new Consumo_o_Registros();
+                    viajar.Show();
+                    this.Hide();
+                }
             }
             catch(Exception ex)
             {
@@ -150,7 +183,11 @@ namespace Login
         {
             try
             {
-                string depto, Ciuda, codP, Client, estrato;
+                string depto;
+                string Ciuda;
+                string codP;
+                string Client;
+                string estrato;
 
                 ConexionBD conex = new ConexionBD();
                 string sql = "SELECT* FROM ClientesTable WHERE Direccion = '" + txtdireccion.Text + "'";
@@ -167,8 +204,13 @@ namespace Login
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo encontrar un cliente con esa dirección");
+                    if (txtdireccion.Text != string.Empty)
+                    {
+                        MessageBox.Show("No se pudo encontrar un cliente con esa dirección");
+                        return;
+                    }
                     return;
+                    
                 }
                 llenarCampos(depto, Ciuda, codP, Client, estrato);
             }
