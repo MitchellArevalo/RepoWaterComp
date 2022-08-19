@@ -97,7 +97,7 @@ namespace Login
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            Form viajar = new Menu();
+            Form viajar = new Consumo_o_Registros();
             viajar.Show();
 
             this.Hide();
