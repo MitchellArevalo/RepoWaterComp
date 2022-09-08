@@ -168,7 +168,7 @@ namespace Login
                 response.Close();
                 remoteStream.Close();
                 readStream.Close();
-                MessageBox.Show("QR generado correctamente");
+                //MessageBox.Show("QR generado correctamente");
             }
             catch (Exception ex)
             {
