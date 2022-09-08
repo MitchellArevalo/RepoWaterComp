@@ -48,6 +48,9 @@
             this.txtconsumo = new System.Windows.Forms.TextBox();
             this.txtdireccion = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.QR_box = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.QR_box)).BeginInit();
             this.SuspendLayout();
             // 
             // txtObservaciones
@@ -76,7 +79,7 @@
             this.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.btn_guardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.btn_guardar.Location = new System.Drawing.Point(480, 388);
+            this.btn_guardar.Location = new System.Drawing.Point(718, 385);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(143, 40);
             this.btn_guardar.TabIndex = 37;
@@ -89,7 +92,7 @@
             this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.btn_cancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.btn_cancelar.Location = new System.Drawing.Point(263, 389);
+            this.btn_cancelar.Location = new System.Drawing.Point(486, 385);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(143, 40);
             this.btn_cancelar.TabIndex = 36;
@@ -260,15 +263,38 @@
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel1.Location = new System.Drawing.Point(-3, 447);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(886, 166);
+            this.panel1.Size = new System.Drawing.Size(1313, 166);
             this.panel1.TabIndex = 38;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.label10.Location = new System.Drawing.Point(1036, 57);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(108, 22);
+            this.label10.TabIndex = 42;
+            this.label10.Text = "Codigo QR";
+            // 
+            // QR_box
+            // 
+            this.QR_box.Location = new System.Drawing.Point(1009, 98);
+            this.QR_box.Name = "QR_box";
+            this.QR_box.Size = new System.Drawing.Size(164, 156);
+            this.QR_box.TabIndex = 44;
+            this.QR_box.TabStop = false;
+            this.QR_box.Click += new System.EventHandler(this.QR_box_Click);
             // 
             // Editar_Consumo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(884, 627);
+            this.ClientSize = new System.Drawing.Size(1308, 627);
+            this.Controls.Add(this.QR_box);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtObservaciones);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btn_guardar);
@@ -293,6 +319,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Consumo";
             this.Load += new System.EventHandler(this.Editar_Consumo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.QR_box)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,5 +346,7 @@
         private System.Windows.Forms.TextBox txtconsumo;
         private System.Windows.Forms.TextBox txtdireccion;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox QR_box;
     }
 }

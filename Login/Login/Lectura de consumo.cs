@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -48,8 +50,9 @@ namespace Login
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            string MesAño_Consumo, Direccion, CodigoPredio, Cliente, Estrato, Observaciones, Impreso, Departamento, Ciudad;
-            
+            string MesAño_Consumo, Direccion, CodigoPredio, Cliente, Estrato, Observaciones, Impreso, Departamento, Ciudad, QRruta;
+
+            QRruta = "";
             string fechaNumerica = DateTime.Now.ToString("MM-yyyy");
             string[] arreglo = fechaNumerica.Split('-');
             string mes = arreglo[0];
@@ -108,7 +111,7 @@ namespace Login
             Ciudad = txtciudad.Text;
             if (Estrato == "1")
             {
-                if (Consumo < 30)
+                if (Consumo <= 30)
                 {
                     Valor_Total = Consumo * 2000;
                 }
@@ -119,7 +122,7 @@ namespace Login
             }
             else if (Estrato == "2")
             {
-                if (Consumo < 30)
+                if (Consumo <= 30)
                 {
                     Valor_Total = Consumo * 3000;
                 }
@@ -128,6 +131,7 @@ namespace Login
                     Valor_Total = Consumo * 4000;
                 }
             }
+            
             try
             {
                 ConexionBD conex = new ConexionBD();
@@ -150,8 +154,30 @@ namespace Login
             //MessageBox.Show(Valor_Total.ToString());
             try
             {
+                var url = string.Format("http://chart.apis.google.com/chart?cht=qr&chs={1}x{2}&chl={0}", Valor_Total, "150", "150");
+                WebResponse response = default(WebResponse);
+                Stream remoteStream = default(Stream);
+                StreamReader readStream = default(StreamReader);
+                WebRequest request = WebRequest.Create(url);
+                response = request.GetResponse();
+                remoteStream = response.GetResponseStream();
+                readStream = new StreamReader(remoteStream);
+                System.Drawing.Image img = System.Drawing.Image.FromStream(remoteStream);
+                img.Save(Application.StartupPath + @"\QrCode\" + Cliente + ".png");
+                QRruta = Cliente + ".png";
+                response.Close();
+                remoteStream.Close();
+                readStream.Close();
+                MessageBox.Show("QR generado correctamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            try
+            {
                 ConexionBD con = new ConexionBD();
-                SqlCommand comando = new SqlCommand(string.Format("INSERT INTO ConsumoTable(MesAño_Consumo, Consumo, Direccion, Valor_Total, CodigoPredio, Cliente, Estrato, Observaciones, Impreso, Departamento, Ciudad)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", MesAño_Consumo, Consumo, Direccion, Valor_Total, CodigoPredio, Cliente, Estrato, Observaciones, Impreso, Departamento, Ciudad), con.conectar());
+                SqlCommand comando = new SqlCommand(string.Format("INSERT INTO ConsumoTable(MesAño_Consumo, Consumo, Direccion, Valor_Total, CodigoPredio, Cliente, Estrato, Observaciones, Impreso, Departamento, Ciudad, QRdireccion)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", MesAño_Consumo, Consumo, Direccion, Valor_Total, CodigoPredio, Cliente, Estrato, Observaciones, Impreso, Departamento, Ciudad, QRruta), con.conectar());
 
                 comando.ExecuteNonQuery();
 
@@ -176,7 +202,8 @@ namespace Login
             {
                 MessageBox.Show("Error al insertar el registro " + ex.ToString());
             }
-            
+           
+
         }
 
         private void txtdireccion_Leave(object sender, EventArgs e)

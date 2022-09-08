@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +24,7 @@ namespace Login
         public static string comentarios_act;
         public static string adress_act;
         public static string Estratosocialactual;
+        public static string qr;
         public void llenarCampos(string departamento, string ciudad, string CodigoPredio, string Cliente, string Estrato)
         {
             this.txtciudad.Text = ciudad;
@@ -95,12 +98,14 @@ namespace Login
             this.txtdireccion.Text = adress_act;
             this.txtconsumo.Text = consumo_act;
             this.txtObservaciones.Text = comentarios_act;
+            QR_box.ImageLocation = Application.StartupPath + @"\QrCode\" + qr;
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             try
             {
+                string QRruta = "";
                 int ID = int.Parse(id_act);
                 int valor = 0;
                 int Consumo = 0;
@@ -122,7 +127,7 @@ namespace Login
                 }
                 if (Estratosocialactual == "1")
                 {
-                    if (Consumo < 30)
+                    if (Consumo <= 30)
                     {
                         valor = Consumo * 2000;
                     }
@@ -133,7 +138,7 @@ namespace Login
                 }
                 else if (Estratosocialactual == "2")
                 {
-                    if (Consumo < 30)
+                    if (Consumo <= 30)
                     {
                         valor = Consumo * 3000;
                     }
@@ -144,7 +149,29 @@ namespace Login
                 }
                 try
                 {
-                    if (DatosBD.UpdateConsumo(ID, Consumo, txtdireccion.Text,valor,txtxcodigopredio.Text,txtnamecliente.Text,Estratosocialactual,txtObservaciones.Text,txtdepartamento.Text,txtciudad.Text) == false)
+                    var url = string.Format("http://chart.apis.google.com/chart?cht=qr&chs={1}x{2}&chl={0}", valor, "150", "150");
+                    WebResponse response = default(WebResponse);
+                    Stream remoteStream = default(Stream);
+                    StreamReader readStream = default(StreamReader);
+                    WebRequest request = WebRequest.Create(url);
+                    response = request.GetResponse();
+                    remoteStream = response.GetResponseStream();
+                    readStream = new StreamReader(remoteStream);
+                    System.Drawing.Image img = System.Drawing.Image.FromStream(remoteStream);
+                    img.Save(Application.StartupPath + @"\QrCode\" + txtnamecliente.Text + ".png");
+                    QRruta = txtnamecliente.Text + ".png";
+                    response.Close();
+                    remoteStream.Close();
+                    readStream.Close();
+                    MessageBox.Show("QR generado correctamente");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                try
+                {
+                    if (DatosBD.UpdateConsumo(ID, Consumo, txtdireccion.Text,valor,txtxcodigopredio.Text,txtnamecliente.Text,Estratosocialactual,txtObservaciones.Text,txtdepartamento.Text,txtciudad.Text, QRruta) == false)
                     {
                         MessageBox.Show("Hubo un error al intentar actualizar el consumo");
                         return;
@@ -169,6 +196,16 @@ namespace Login
         private void txtdireccion_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void QR_box_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

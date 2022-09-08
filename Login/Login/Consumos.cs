@@ -273,12 +273,15 @@ namespace Login
         {
             try
             {
-                string id, consumo,  Observa, Direcc;
+                string id, consumo,  Observa, Direcc,qr;
                 id = Convert.ToString(dglistaConsumos.CurrentRow.Cells["IdConsumo"].Value);
                 consumo = Convert.ToString(dglistaConsumos.CurrentRow.Cells["Consumo"].Value);
                 Observa = Convert.ToString(dglistaConsumos.CurrentRow.Cells["Observaciones"].Value);
                 Direcc = Convert.ToString(dglistaConsumos.CurrentRow.Cells["Direccion"].Value);
+                qr = Convert.ToString(dglistaConsumos.CurrentRow.Cells["QRdireccion"].Value);
 
+
+                Editar_Consumo.qr = qr;
                 Editar_Consumo.id_act = id;
                 Editar_Consumo.consumo_act = consumo;
                 Editar_Consumo.comentarios_act = Observa;

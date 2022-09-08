@@ -196,12 +196,12 @@ namespace Login
                         break;
                 }
                 string MesAño_Consumo = arreglo[0] + " / " + mes + " / " + arreglo[2];
-
+                string qr = Application.StartupPath + @"\QrCode\" + misdatos.ClienteQRFactura(fechaFacturaSolicitada, direccion);
+                MessageBox.Show(qr.ToString());
 
                 //estilos CSS
                 string h1 = "color: #646a9c;";
                 string padding_left = "padding-left: 50px;";
-
                 //estilos CSS
 
                 StringBuilder sb = new StringBuilder();
@@ -271,12 +271,11 @@ namespace Login
                 sb.Append("<br>");
                 sb.Append("<br>");
                 sb.Append("<br>");
-                sb.Append("<br>");
-                sb.Append("<br>");
                 /////////////////////////////////////////TABLE///////////////////////////////////////////////////
                 sb.Append("<div style='" + padding_left + "'>");
                 sb.Append("<p style='" + padding_left + "'>Firma del gerente:</p>");
                 sb.Append("<img style='" + padding_left + "' src=\"https://derechovenezolano.files.wordpress.com/2020/04/firma.png?w=326\" alt=\"Logo\"width=\"150px\">");
+                sb.Append("<img src = '" + qr + "'>");
                 sb.Append("</div>");
                 sb.Append("</main>");
                 /////////////////////////////////////////FOOTER///////////////////////////////////////////////////

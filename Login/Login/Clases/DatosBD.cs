@@ -817,6 +817,12 @@ namespace Login
                 DataTable dt = new DataTable();
                 dt.Load(dr);
 
+                foreach (DataRow row in dt.Rows)
+                {
+                    row["QRImg"] = File.ReadAllBytes(Application.StartupPath + @"\QrCode\" + Path.GetFileName(row["QRdireccion"].ToString()));
+
+                }
+                
                 con1.desconectar();
 
                 return dt;
@@ -850,12 +856,12 @@ namespace Login
             }
         }
        
-        public static bool UpdateConsumo(int ID, int consumo, string direccion, int valor, string codigoPredio, string Cliente, string estrato, string observaciones, string departamento, string ciudad)
+        public static bool UpdateConsumo(int ID, int consumo, string direccion, int valor, string codigoPredio, string Cliente, string estrato, string observaciones, string departamento, string ciudad, string QRruta)
         {
             try
             {
                 ConexionBD con = new ConexionBD();
-                SqlCommand comando = new SqlCommand("Update ConsumoTable set Consumo=@Consumo, Direccion=@Direccion, Valor_Total=@Valor_Total, CodigoPredio=@CodigoPredio, Cliente=@Cliente, Estrato=@Estrato, Observaciones=@Observaciones, Departamento=@Departamento, Ciudad=@Ciudad where IdConsumo=@IdConsumo", con.conectar());
+                SqlCommand comando = new SqlCommand("Update ConsumoTable set Consumo=@Consumo, Direccion=@Direccion, Valor_Total=@Valor_Total, CodigoPredio=@CodigoPredio, Cliente=@Cliente, Estrato=@Estrato, Observaciones=@Observaciones, Departamento=@Departamento, Ciudad=@Ciudad, QRdireccion=@QRdireccion  where IdConsumo=@IdConsumo", con.conectar());
                 comando.Parameters.AddWithValue("@IdConsumo", ID);
                 comando.Parameters.AddWithValue("@Consumo", consumo);
                 comando.Parameters.AddWithValue("@Direccion", direccion);
@@ -866,6 +872,7 @@ namespace Login
                 comando.Parameters.AddWithValue("@Observaciones", observaciones);
                 comando.Parameters.AddWithValue("@Departamento", departamento);
                 comando.Parameters.AddWithValue("@Ciudad", ciudad);
+                comando.Parameters.AddWithValue("@QRdireccion", QRruta);
                 comando.ExecuteNonQuery();
                 con.desconectar();
 
@@ -1043,6 +1050,34 @@ namespace Login
                 if (leer.Read() == true)
                 {
                     CodP_select = leer["Consumo"].ToString();
+                    conex.desconectar();
+
+                    return CodP_select;
+
+                }
+            }
+
+            return null;
+        }
+        public string ClienteQRFactura(string Fecha, string Direccion)
+        {
+            ConexionBD conex = new ConexionBD();
+            string sql = "SELECT QRdireccion FROM ConsumoTable WHERE MesAño_Consumo = '" + Fecha + "' AND Direccion = '" + Direccion + "'";
+            SqlCommand comandocorreo = new SqlCommand(sql, conex.conectar());
+
+            SqlDataAdapter tabla = new SqlDataAdapter(comandocorreo);
+            DataTable miTabla = new DataTable();
+
+            tabla.Fill(miTabla);
+            string CodP_select;
+            if (miTabla.Rows.Count > 0)
+            {
+                //MessageBox.Show(miTabla.Rows.Count.ToString());
+                SqlDataReader leer = comandocorreo.ExecuteReader();
+
+                if (leer.Read() == true)
+                {
+                    CodP_select = leer["QRdireccion"].ToString();
                     conex.desconectar();
 
                     return CodP_select;

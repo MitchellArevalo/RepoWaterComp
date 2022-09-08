@@ -33,7 +33,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consumos));
             this.dglistaConsumos = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Export_Button = new System.Windows.Forms.Button();
+            this.RefreshButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
+            this.editar_Button = new System.Windows.Forms.Button();
+            this.Deletebutton = new System.Windows.Forms.Button();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QRImg = new System.Windows.Forms.DataGridViewImageColumn();
+            this.BarCodeDir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QRdireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MesAño_Consumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Consumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor_Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,13 +55,6 @@
             this.Estrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Impreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodigoPredio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Export_Button = new System.Windows.Forms.Button();
-            this.RefreshButton = new System.Windows.Forms.Button();
-            this.BackButton = new System.Windows.Forms.Button();
-            this.editar_Button = new System.Windows.Forms.Button();
-            this.Deletebutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dglistaConsumos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,6 +79,9 @@
             this.dglistaConsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dglistaConsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cliente,
+            this.QRImg,
+            this.BarCodeDir,
+            this.QRdireccion,
             this.MesAño_Consumo,
             this.Consumo,
             this.Valor_Total,
@@ -108,6 +114,100 @@
             this.dglistaConsumos.Size = new System.Drawing.Size(1366, 691);
             this.dglistaConsumos.TabIndex = 29;
             // 
+            // textBox1
+            // 
+            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            this.textBox1.Location = new System.Drawing.Point(280, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(664, 35);
+            this.textBox1.TabIndex = 26;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(-2, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1368, 41);
+            this.panel1.TabIndex = 31;
+            // 
+            // Export_Button
+            // 
+            this.Export_Button.BackColor = System.Drawing.Color.Black;
+            this.Export_Button.BackgroundImage = global::Login.Properties.Resources.PDF_Export;
+            this.Export_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Export_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Export_Button.FlatAppearance.BorderSize = 0;
+            this.Export_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Export_Button.Location = new System.Drawing.Point(1190, 0);
+            this.Export_Button.Name = "Export_Button";
+            this.Export_Button.Size = new System.Drawing.Size(46, 41);
+            this.Export_Button.TabIndex = 30;
+            this.Export_Button.UseVisualStyleBackColor = false;
+            this.Export_Button.Click += new System.EventHandler(this.Export_Button_Click);
+            // 
+            // RefreshButton
+            // 
+            this.RefreshButton.BackColor = System.Drawing.Color.Black;
+            this.RefreshButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RefreshButton.BackgroundImage")));
+            this.RefreshButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RefreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RefreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RefreshButton.Location = new System.Drawing.Point(1057, 3);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(36, 36);
+            this.RefreshButton.TabIndex = 28;
+            this.RefreshButton.UseVisualStyleBackColor = false;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
+            // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.Color.Black;
+            this.BackButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackButton.BackgroundImage")));
+            this.BackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BackButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(11)))), ((int)(((byte)(53)))));
+            this.BackButton.Location = new System.Drawing.Point(1319, 3);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(41, 38);
+            this.BackButton.TabIndex = 27;
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
+            // editar_Button
+            // 
+            this.editar_Button.BackColor = System.Drawing.Color.Black;
+            this.editar_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editar_Button.BackgroundImage")));
+            this.editar_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.editar_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editar_Button.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.editar_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.editar_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(11)))), ((int)(((byte)(53)))));
+            this.editar_Button.Location = new System.Drawing.Point(2, 1);
+            this.editar_Button.Name = "editar_Button";
+            this.editar_Button.Size = new System.Drawing.Size(41, 38);
+            this.editar_Button.TabIndex = 25;
+            this.editar_Button.UseVisualStyleBackColor = false;
+            this.editar_Button.Click += new System.EventHandler(this.editar_Button_Click);
+            // 
+            // Deletebutton
+            // 
+            this.Deletebutton.BackColor = System.Drawing.Color.Black;
+            this.Deletebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Deletebutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Deletebutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Deletebutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(11)))), ((int)(((byte)(53)))));
+            this.Deletebutton.Image = ((System.Drawing.Image)(resources.GetObject("Deletebutton.Image")));
+            this.Deletebutton.Location = new System.Drawing.Point(49, 1);
+            this.Deletebutton.Name = "Deletebutton";
+            this.Deletebutton.Size = new System.Drawing.Size(41, 38);
+            this.Deletebutton.TabIndex = 24;
+            this.Deletebutton.UseVisualStyleBackColor = false;
+            this.Deletebutton.Click += new System.EventHandler(this.Deletebutton_Click);
+            // 
             // Cliente
             // 
             this.Cliente.DataPropertyName = "Cliente";
@@ -115,6 +215,33 @@
             this.Cliente.HeaderText = "Cliente";
             this.Cliente.Name = "Cliente";
             this.Cliente.ReadOnly = true;
+            // 
+            // QRImg
+            // 
+            this.QRImg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.QRImg.DataPropertyName = "QRImg";
+            this.QRImg.FillWeight = 50F;
+            this.QRImg.HeaderText = "QRImg";
+            this.QRImg.Name = "QRImg";
+            this.QRImg.ReadOnly = true;
+            this.QRImg.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.QRImg.Width = 265;
+            // 
+            // BarCodeDir
+            // 
+            this.BarCodeDir.DataPropertyName = "BarCodeDir";
+            this.BarCodeDir.HeaderText = "BarCodeDir";
+            this.BarCodeDir.Name = "BarCodeDir";
+            this.BarCodeDir.ReadOnly = true;
+            this.BarCodeDir.Visible = false;
+            // 
+            // QRdireccion
+            // 
+            this.QRdireccion.DataPropertyName = "QRdireccion";
+            this.QRdireccion.HeaderText = "QRdireccion";
+            this.QRdireccion.Name = "QRdireccion";
+            this.QRdireccion.ReadOnly = true;
+            this.QRdireccion.Visible = false;
             // 
             // MesAño_Consumo
             // 
@@ -212,100 +339,6 @@
             this.CodigoPredio.ReadOnly = true;
             this.CodigoPredio.Visible = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.textBox1.Location = new System.Drawing.Point(280, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(664, 35);
-            this.textBox1.TabIndex = 26;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(-2, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1368, 41);
-            this.panel1.TabIndex = 31;
-            // 
-            // Export_Button
-            // 
-            this.Export_Button.BackColor = System.Drawing.Color.Black;
-            this.Export_Button.BackgroundImage = global::Login.Properties.Resources.PDF_Export;
-            this.Export_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Export_Button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Export_Button.FlatAppearance.BorderSize = 0;
-            this.Export_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Export_Button.Location = new System.Drawing.Point(1190, 0);
-            this.Export_Button.Name = "Export_Button";
-            this.Export_Button.Size = new System.Drawing.Size(46, 41);
-            this.Export_Button.TabIndex = 30;
-            this.Export_Button.UseVisualStyleBackColor = false;
-            this.Export_Button.Click += new System.EventHandler(this.Export_Button_Click);
-            // 
-            // RefreshButton
-            // 
-            this.RefreshButton.BackColor = System.Drawing.Color.Black;
-            this.RefreshButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RefreshButton.BackgroundImage")));
-            this.RefreshButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.RefreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RefreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RefreshButton.Location = new System.Drawing.Point(1057, 3);
-            this.RefreshButton.Name = "RefreshButton";
-            this.RefreshButton.Size = new System.Drawing.Size(36, 36);
-            this.RefreshButton.TabIndex = 28;
-            this.RefreshButton.UseVisualStyleBackColor = false;
-            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
-            // 
-            // BackButton
-            // 
-            this.BackButton.BackColor = System.Drawing.Color.Black;
-            this.BackButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackButton.BackgroundImage")));
-            this.BackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BackButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(11)))), ((int)(((byte)(53)))));
-            this.BackButton.Location = new System.Drawing.Point(1319, 3);
-            this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(41, 38);
-            this.BackButton.TabIndex = 27;
-            this.BackButton.UseVisualStyleBackColor = false;
-            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
-            // 
-            // editar_Button
-            // 
-            this.editar_Button.BackColor = System.Drawing.Color.Black;
-            this.editar_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editar_Button.BackgroundImage")));
-            this.editar_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.editar_Button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editar_Button.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.editar_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.editar_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(11)))), ((int)(((byte)(53)))));
-            this.editar_Button.Location = new System.Drawing.Point(2, 1);
-            this.editar_Button.Name = "editar_Button";
-            this.editar_Button.Size = new System.Drawing.Size(41, 38);
-            this.editar_Button.TabIndex = 25;
-            this.editar_Button.UseVisualStyleBackColor = false;
-            this.editar_Button.Click += new System.EventHandler(this.editar_Button_Click);
-            // 
-            // Deletebutton
-            // 
-            this.Deletebutton.BackColor = System.Drawing.Color.Black;
-            this.Deletebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Deletebutton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Deletebutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Deletebutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(11)))), ((int)(((byte)(53)))));
-            this.Deletebutton.Image = ((System.Drawing.Image)(resources.GetObject("Deletebutton.Image")));
-            this.Deletebutton.Location = new System.Drawing.Point(49, 1);
-            this.Deletebutton.Name = "Deletebutton";
-            this.Deletebutton.Size = new System.Drawing.Size(41, 38);
-            this.Deletebutton.TabIndex = 24;
-            this.Deletebutton.UseVisualStyleBackColor = false;
-            this.Deletebutton.Click += new System.EventHandler(this.Deletebutton_Click);
-            // 
             // Consumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,6 +375,9 @@
         private System.Windows.Forms.Button Deletebutton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewImageColumn QRImg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BarCodeDir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QRdireccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn MesAño_Consumo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Consumo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor_Total;
